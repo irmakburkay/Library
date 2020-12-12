@@ -1,0 +1,10 @@
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\KütüphaneV2\bin\Debug\KütüphaneV2.exe.config
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\KütüphaneV2\bin\Debug\KütüphaneV2.exe
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\KütüphaneV2\bin\Debug\KütüphaneV2.pdb
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\KütüphaneV2\obj\Debug\KütüphaneV2.csprojAssemblyReference.cache
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\KütüphaneV2\obj\Debug\KütüphaneV2.Form1.resources
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\KütüphaneV2\obj\Debug\KütüphaneV2.Properties.Resources.resources
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\KütüphaneV2\obj\Debug\KütüphaneV2.csproj.GenerateResource.cache
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\KütüphaneV2\obj\Debug\KütüphaneV2.csproj.CoreCompileInputs.cache
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\KütüphaneV2\obj\Debug\KütüphaneV2.exe
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\KütüphaneV2\obj\Debug\KütüphaneV2.pdb
