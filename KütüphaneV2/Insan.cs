@@ -15,7 +15,7 @@ namespace KütüphaneV2
         public static OleDbDataAdapter adaptor;
 
         public long insan_id;
-        public string tc, sifre, isim, soyisim, guvenlikKelimesi;
+        public String tc, sifre, isim, soyisim, guvenlikKelimesi;
 
         public Insan()                                                                                                      //komut nesnesini veritabanına bağlar
         {
