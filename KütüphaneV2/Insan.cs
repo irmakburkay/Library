@@ -24,7 +24,7 @@ namespace KütüphaneV2
         }
 
         public void bilgiAl(String tc)                                                                                      //tc numarası verilen kullanıcının bilgilerini class değişkenlerine atar
-        {
+        {                                                                                                                   //tc numarası verilen kayıt yoksa messagebox ile mesaj yazar
             baglanti.Open();
             komut.CommandText = "SELECT count(*) FROM Insan WHERE tc='" + tc + "'";
             if (komut.ExecuteScalar().ToString() != "0")
