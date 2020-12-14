@@ -37,7 +37,7 @@ namespace KütüphaneV2
         {
             DataTable tablo = new DataTable();
             baglanti.Open();
-            komut.CommandText = "SELECT Insan.tc AS [TCKN], Insan.isim AS [Ad], Insan.soyisim AS [Soyad], Insan.insanDurumu AS [Durum], " +
+            komut.CommandText = "SELECT Rapor.rapor_id as [ID], Insan.tc AS [TCKN], Insan.isim AS [Ad], Insan.soyisim AS [Soyad], Insan.insanDurumu AS [Durum], " +
                 "Kitap.isim AS [İsim], Kitap.yazar AS [Yazar], Kitap.basımYılı AS [Basım Yılı], " +
                 "Rapor.kiraTarihi AS [Kira Tarihi], Rapor.iadeTarihi AS [İade Tarihi], Rapor.cezaTutarı AS [Geciktirme Cezası]" +
                 "FROM Insan, Kitap, Rapor " +
@@ -48,14 +48,14 @@ namespace KütüphaneV2
             return tablo;
         }
 
-        public void gorevliAta(Insan insan)         //kullanıcı nesnesi parametresiyle görevli atama
+        public override void gorevliAta(Insan insan)         //kullanıcı nesnesi parametresiyle görevli atama
         {
             baglanti.Open();
             komut.CommandText = "UPDATE Insan SET insanDurumu='Görevli' WHERE insan_id=" + insan.insan_id;
             komut.ExecuteNonQuery();
             baglanti.Close();
         }
-        public void gorevliAta(String tc)                   //tc no ile görevli atama
+        public override void gorevliAta(String tc)                   //tc no ile görevli atama
         {
             baglanti.Open();
             komut.CommandText = "UPDATE Insan SET insanDurumu='Görevli' WHERE tc='" + tc + "'";
@@ -63,14 +63,14 @@ namespace KütüphaneV2
             baglanti.Close();
         }
 
-        public void kullaniciAta(Insan insan)       //kullanıcı nesnesi parametresiyle kullanıcı atama
+        public override void kullaniciAta(Insan insan)       //kullanıcı nesnesi parametresiyle kullanıcı atama
         {
             baglanti.Open();
             komut.CommandText = "UPDATE Insan SET insanDurumu='Kullanıcı' WHERE insan_id=" + insan.insan_id;
             komut.ExecuteNonQuery();
             baglanti.Close();
         }
-        public void kullaniciAta(String tc)                 //tc no ile kullanıcı atama
+        public override void kullaniciAta(String tc)                 //tc no ile kullanıcı atama
         {
             baglanti.Open();
             komut.CommandText = "UPDATE Insan SET insanDurumu='Kullanıcı' WHERE tc='" + tc + "'";
@@ -78,7 +78,7 @@ namespace KütüphaneV2
             baglanti.Close();
         }
 
-        public DataTable insanSorgula()                     //tüm insanları görüntüler (tc/şifre/güvenlik kelimesi hariç)
+        public override DataTable insanSorgula()                     //tüm insanları görüntüler (tc/şifre/güvenlik kelimesi hariç)
         {
             DataTable tablo = new DataTable();
             baglanti.Open();
@@ -93,14 +93,14 @@ namespace KütüphaneV2
         {
             DataTable tablo = new DataTable();
             baglanti.Open();
-            komut.CommandText = "SELECT isim as [Kitap İsmi],yazar as [Yazar],basımYılı as [Basım Yılı],kitapDurumu as [Kitap Durumu] FROM Kitap";
+            komut.CommandText = "SELECT kitap_id as [ID], isim as [Kitap İsmi],yazar as [Yazar],basımYılı as [Basım Yılı],kitapDurumu as [Kitap Durumu] FROM Kitap";
             adaptor = new OleDbDataAdapter(komut);
             adaptor.Fill(tablo);
             baglanti.Close();
             return tablo;
         }
 
-        public void kitapEkle(String isim,String yazar,String basımYili)    //yeni kitap ekler     
+        public override void kitapEkle(String isim,String yazar,String basımYili)    //yeni kitap ekler     
         {
             baglanti.Open();
             komut.CommandText = "INSERT INTO Kitap (isim,yazar,basımYılı,kitapDurumu) VALUES ('" + isim + "','" + yazar + "','" + basımYili + "','Kütüphane')";
@@ -108,7 +108,7 @@ namespace KütüphaneV2
             baglanti.Close();
         }
 
-        public void kitapSil(long kitap_id)                 //kitap_id numarası ile kitap durumunu atılmış olarak değiştirir
+        public override void kitapSil(long kitap_id)                 //kitap_id numarası ile kitap durumunu atılmış olarak değiştirir
         {
             baglanti.Open();
             komut.CommandText = "UPDATE Kitap SET kitapDurumu='Atılmış' WHERE kitap_id=" + kitap_id;
@@ -116,7 +116,7 @@ namespace KütüphaneV2
             baglanti.Close();
         }
 
-        public void raporEkle(Insan insan,long kitap_id,DateTime kiraTarihi)        //insan nesnesi kitap_id ve kira tarihi olarak parametre alır ve Rapor tablosuna yeni kayıt ekler
+        public override void raporEkle(Insan insan,long kitap_id,DateTime kiraTarihi)        //insan nesnesi kitap_id ve kira tarihi olarak parametre alır ve Rapor tablosuna yeni kayıt ekler
         {
             baglanti.Open();
             komut.CommandText = "INSERT INTO Rapor (kitap_id,insan_id,kiraTarihi) " +

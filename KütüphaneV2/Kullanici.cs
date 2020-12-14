@@ -55,7 +55,7 @@ namespace KütüphaneV2
         {
             DataTable tablo = new DataTable();
             baglanti.Open();
-            komut.CommandText = "SELECT isim as [Kitap İsmi],yazar as [Yazar],basımYılı as [Basım Yılı],kitapDurumu as [Kitap Durumu] " +
+            komut.CommandText = "SELECT kitap_id as [ID], isim as [Kitap İsmi], yazar as [Yazar], basımYılı as [Basım Yılı], kitapDurumu as [Kitap Durumu] " +
                 "FROM Kitap WHERE kitapDurumu='Kütüphane' OR kitapDurumu='Kullanıcı'";
             adaptor = new OleDbDataAdapter(komut);
             adaptor.Fill(tablo);
@@ -67,7 +67,7 @@ namespace KütüphaneV2
         {
             DataTable tablo = new DataTable();
             baglanti.Open();
-            komut.CommandText = "SELECT Insan.tc AS [TCKN], Insan.isim AS [Ad], Insan.soyisim AS [Soyad], Insan.insanDurumu AS [Durum], " +
+            komut.CommandText = "SELECT Rapor.rapor_id as [ID], Insan.tc AS [TCKN], Insan.isim AS [Ad], Insan.soyisim AS [Soyad], Insan.insanDurumu AS [Durum], " +
                 "Kitap.isim AS [İsim], Kitap.yazar AS [Yazar], Kitap.basımYılı AS [Basım Yılı], " +
                 "Rapor.kiraTarihi AS [Kira Tarihi], Rapor.iadeTarihi AS [İade Tarihi], Rapor.cezaTutarı AS [Geciktirme Cezası]" +
                 "FROM Insan, Kitap, Rapor " +
@@ -78,7 +78,7 @@ namespace KütüphaneV2
             return tablo;
         }
 
-        public void raporGuncelle(long kitap_id, DateTime kiraTarihi, DateTime iadeTarihi, double cezaTutari)               //kullanıcı tarafından çağırılır kitap_id parametresi alır (kitap_id bilinmiyorsa Insan.kitapBilgiAl fonksiyonuyla bulunabilir) kiralama tarihini datetime olarak alır girilen iade tarihi ve ceza tutarı ile raporu günceller
+        public override void raporGuncelle(long kitap_id, DateTime kiraTarihi, DateTime iadeTarihi, double cezaTutari)               //kullanıcı tarafından çağırılır kitap_id parametresi alır (kitap_id bilinmiyorsa Insan.kitapBilgiAl fonksiyonuyla bulunabilir) kiralama tarihini datetime olarak alır girilen iade tarihi ve ceza tutarı ile raporu günceller
         {
             baglanti.Open();
             komut.CommandText = "UPDATE Rapor SET iadeTarihi=#" + iadeTarihi.Month.ToString() + "/" + iadeTarihi.Day.ToString() + "/" + iadeTarihi.Year.ToString() + "#, cezaTutarı='" + cezaTutari + "' WHERE insan_id = " + this.insan_id + " AND kitap_id = " + kitap_id + " AND kiraTarihi =#" + kiraTarihi.Month.ToString() + "/" + kiraTarihi.Day.ToString() + "/" + kiraTarihi.Year.ToString() + "#";
