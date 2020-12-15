@@ -1,3 +1,3 @@
 # Library
 Kütüphane İşlem Sistemi 
-Düzce Üniversitesi NDP Proje
+Düzce Üniversitesi NDP Projesi
