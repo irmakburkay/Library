@@ -20,8 +20,7 @@ namespace KütüphaneV2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Insan gorevli = new Gorevli("00000000000");
-            Insan kullanici = new Kullanici("11111111111");
+
         }
     }
 }

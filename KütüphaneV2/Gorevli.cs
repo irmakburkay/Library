@@ -102,7 +102,7 @@ namespace KütüphaneV2
             long insan_id = int.Parse(sqlString("SELECT insan_id FROM Talep WHERE talep.id=" + talep_id));
             raporEkle(insan_id, kitap_id, DateTime.Today);
             sqlIslem("UPDATE Kitap SET kitapDurumu='Kullanıcı' WHERE kitap_id=" + kitap_id);
-            sqlIslem("UPDATE Talep SET talepDurumu='Onaylandı'Onaylandı' WHERE talep_id=" + talep_id);
+            sqlIslem("UPDATE Talep SET talepDurumu='Onaylandı' WHERE talep_id=" + talep_id);
         }
 
     }
