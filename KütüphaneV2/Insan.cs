@@ -51,32 +51,6 @@ namespace KütüphaneV2
             return str;
         }
 
-        /*                                                                                  !!!TAMAMLANMADI!!!
-                public Insan giris(String tc)
-                {
-                    baglanti.Open();
-                    komut.CommandText = "SELECT count(*) FROM Insan WHERE tc='" + tc + "'";
-                    if (komut.ExecuteScalar().ToString() != "0")
-                    {
-                        komut.CommandText = "SELECT insanDurumu FROM Insan WHERE tc='" + tc + "'";
-                        String insanDurumu = komut.ExecuteScalar().ToString();
-                        switch(insanDurumu)
-                        {
-                            case "Kullanıcı":
-                                return new Kullanici(tc);
-                            case "Görevli":
-                                return new Gorevli(tc);
-                            case "Atılmış":
-                                MessageBox.Show("Girilen TC numarasına ait kayıt silinmiş olarak görünmektedir !");
-                                return null;
-                            default:
-                                return null;
-                        }
-                    }
-                    else
-                        return null;
-                }
-        */
         public void bilgiAl(String tc)                                                                                      //tc numarası verilen kullanıcının bilgilerini class değişkenlerine atar
         {                                                                                                                   //tc numarası verilen kayıt yoksa messagebox ile mesaj yazar
 
@@ -99,9 +73,9 @@ namespace KütüphaneV2
             sqlIslem("UPDATE Insan SET şifre='" + sifre + "',isim='" + isim + "',soyisim='" + soyisim + "',güvenlikKelimesi='" + guvenlikKelimesi + "' WHERE insan_id=" + insan.insan_id);
         }
 
-        public String sifremiUnuttum(String tc, String guvenlikKelimesi)                                                    //tc numarası ve güvenlikSorusu verilen kullanıcının şifresini çevirir
+        public String insanDurumu()                                                                                        //insan_id numarası ile kaydın kullanıcı mı görevli mi olduğunu string olarak çevirir
         {
-            return sqlString("SELECT şifre FROM Insan WHERE tc='" + tc + "' AND güvenlikKelimesi='" + guvenlikKelimesi + "'");
+            return sqlString("SELECT insanDurumu FROM Insan WHERE insan_id=" + insan_id);
         }
 
         public long kitapBilgiAl(String isim, String yazar, String basımYili)           //ismi yazarı basım yılı verilen kitabın kitap_id numarasını çevirir
@@ -117,7 +91,7 @@ namespace KütüphaneV2
             sqlIslem(sql);
         }
 
-        public void talepEkle(String islem,long kitap_id, String isim, String yazar, String basımYili)     //parametrelerle kira/iade Talep kayıdı oluşturur
+        public void talepEkle(String islem, long kitap_id, String isim, String yazar, String basımYili)     //parametrelerle kira/iade Talep kayıdı oluşturur
         {
             String sql = "INSERT INTO Talep (talepTarihi,işlem,insan_id,kitap_id,kitap_isim,kitap_yazar,kitap_basımYılı,talepDurumu) " +
                 "VALUES (#" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString() + "#," +
@@ -127,18 +101,18 @@ namespace KütüphaneV2
 
         public virtual void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi) { }
         public virtual void insanSil(long insan_id) { }
+        public virtual void gorevliAta(long insan_id) { }
+        public virtual void kullaniciAta(long insan_id) { }
         public virtual DataTable kitapSorgula() { return null; }
         public virtual DataTable raporSorgula() { return null; }
         public virtual DataTable insanSorgula() { return null; }
         public virtual DataTable talepSorgula() { return null; }
-        public virtual void gorevliAta(long insan_id) { }
-        public virtual void kullaniciAta(long insan_id) { }
         public virtual void kitapEkle(String isim, String yazar, String basımYili) { }
-        public virtual void kitapEkle(long talep_id) { }
         public virtual void kitapSil(long kitap_id) { }
-        public virtual void raporEkle(long insan_id, long kitap_id, DateTime kiraTarihi) { }
-        public virtual void raporGuncelle(long rapor_id, DateTime iadeTarihi, double cezaTutari) { }
+        public virtual void kitapEkle(long talep_id) { }
         public virtual void kitapKirala(long id) { }
         public virtual void kitapIade(long rapor_id, double cezaTutarı) { }
+        public virtual void raporEkle(long insan_id, long kitap_id, DateTime kiraTarihi) { }
+        public virtual void raporGuncelle(long rapor_id, DateTime iadeTarihi, double cezaTutari) { }
     }
 }

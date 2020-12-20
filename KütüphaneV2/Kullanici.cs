@@ -28,16 +28,16 @@ namespace KütüphaneV2
             bilgiAl(insan.tc);
         }
 
-        public override void insanSil(long insan_id)                                                                      //sadece kullanıcı nesnelerini silebilir
-        {
-                sqlIslem("UPDATE Insan SET insanDurumu='Silinmiş' WHERE insan_id=" + insan_id);   
-        }
-
         public override void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi)  //parametrelerle veritabanında yeni kullanıcı oluşturur
         {
             String sql = "INSERT INTO Insan (tc,şifre,isim,soyisim,güvenlikKelimesi,insanDurumu) " +
                 "VALUES ('" + tc + "','" + sifre + "','" + isim + "','" + soyisim + "','" + guvenlikKelimesi + "','Kullanıcı')";
             sqlIslem(sql);
+        }
+
+        public override void insanSil(long insan_id)                                                                      //sadece kullanıcı nesnelerini silebilir
+        {
+                sqlIslem("UPDATE Insan SET insanDurumu='Silinmiş' WHERE insan_id=" + insan_id);   
         }
 
         public override DataTable kitapSorgula()                //kütüphanede veya kullanıcıda olan kitapları sorgular DataTable olarak çevirir (dataGridView.DataSource=DataTable)
@@ -53,14 +53,8 @@ namespace KütüphaneV2
                 "Kitap.isim AS [İsim], Kitap.yazar AS [Yazar], Kitap.basımYılı AS [Basım Yılı], " +
                 "Rapor.kiraTarihi AS [Kira Tarihi], Rapor.iadeTarihi AS [İade Tarihi], Rapor.cezaTutarı AS [Geciktirme Cezası]" +
                 "FROM Insan, Kitap, Rapor " +
-                "WHERE Insan.insan_id="+this.insan_id+" AND Rapor.insan_id=Insan.insan_id AND Rapor.kitap_id=Kitap.kitap_id";
+                "WHERE Insan.insan_id=" + this.insan_id + " AND Rapor.insan_id=Insan.insan_id AND Rapor.kitap_id=Kitap.kitap_id";
             return sqlTablo(sql);
-        }
-
-        public override void raporGuncelle(long rapor_id, DateTime iadeTarihi, double cezaTutari)               //kullanıcı tarafından çağırılır kitap_id parametresi alır (kitap_id bilinmiyorsa Insan.kitapBilgiAl fonksiyonuyla bulunabilir) kiralama tarihini datetime olarak alır girilen iade tarihi ve ceza tutarı ile raporu günceller
-        {
-            String sql = "UPDATE Rapor SET iadeTarihi=#" + iadeTarihi.Month.ToString() + "/" + iadeTarihi.Day.ToString() + "/" + iadeTarihi.Year.ToString() + "#, cezaTutarı='" + cezaTutari + "' WHERE rapor_id=" + rapor_id;
-            sqlIslem(sql);
         }
 
         public override DataTable talepSorgula()                                //kullanıcı için kendi oluşturduğu yeni kitap talepleri, kiralama talepleri, iade talepleri tablosunu DataTable olarak çevirir
@@ -71,6 +65,12 @@ namespace KütüphaneV2
                 "talepDurumu as [Durum] FROM (Talep LEFT JOIN Kitap ON Talep.kitap_id=Kitap.kitap_id) " +
                 "LEFT JOIN Insan ON (Talep.insan_id=Insan.insan_id AND Talep.insan_id=" + this.insan_id + ")";
             return sqlTablo(sql);
+        }
+
+        public override void raporGuncelle(long rapor_id, DateTime iadeTarihi, double cezaTutari)               //kullanıcı tarafından çağırılır kitap_id parametresi alır (kitap_id bilinmiyorsa Insan.kitapBilgiAl fonksiyonuyla bulunabilir) kiralama tarihini datetime olarak alır girilen iade tarihi ve ceza tutarı ile raporu günceller
+        {
+            String sql = "UPDATE Rapor SET iadeTarihi=#" + iadeTarihi.Month.ToString() + "/" + iadeTarihi.Day.ToString() + "/" + iadeTarihi.Year.ToString() + "#, cezaTutarı='" + cezaTutari + "' WHERE rapor_id=" + rapor_id;
+            sqlIslem(sql);
         }
 
         public override void kitapEkle(String isim, String yazar, String basımYili)     //parametrelerle yeni kitap Talep kayıdı oluşturur
