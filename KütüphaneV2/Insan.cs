@@ -68,9 +68,9 @@ namespace KütüphaneV2
             baglanti.Close();
         }
 
-        public void bilgiGuncelle(Insan insan, String sifre, String isim, String soyisim, String guvenlikKelimesi)          //kullanıcının parametre olarak girilen tüm bilgilerini günceller
+        public void bilgiGuncelle(String sifre, String isim, String soyisim, String guvenlikKelimesi)          //kullanıcının parametre olarak girilen tüm bilgilerini günceller
         {
-            sqlIslem("UPDATE Insan SET şifre='" + sifre + "',isim='" + isim + "',soyisim='" + soyisim + "',güvenlikKelimesi='" + guvenlikKelimesi + "' WHERE insan_id=" + insan.insan_id);
+            sqlIslem("UPDATE Insan SET şifre='" + sifre + "',isim='" + isim + "',soyisim='" + soyisim + "',güvenlikKelimesi='" + guvenlikKelimesi + "' WHERE insan_id=" + insan_id);
         }
 
         public String insanDurumu()                                                                                        //insan_id numarası ile kaydın kullanıcı mı görevli mi olduğunu string olarak çevirir
@@ -100,7 +100,6 @@ namespace KütüphaneV2
         }
 
         public virtual void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi) { }
-        public virtual void insanSil(long insan_id) { }
         public virtual void gorevliAta(long insan_id) { }
         public virtual void kullaniciAta(long insan_id) { }
         public virtual DataTable kitapSorgula() { return null; }

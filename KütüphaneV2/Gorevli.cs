@@ -15,17 +15,12 @@ namespace KütüphaneV2
             bilgiAl(tc);                                                                        //tc bilgisiyle görevli bilgilerini class değişkenlerine atar
         }
 
-        public override void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi)   //parametrelerle veritabanında yeni kullanıcı oluşturur
+        public override void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi)   //parametrelerle veritabanında yeni görevli oluşturur
         {
 
             String sql = "INSERT INTO Insan (tc,şifre,isim,soyisim,güvenlikKelimesi,insanDurumu) " +
                 "VALUES ('" + tc + "','" + sifre + "','" + isim + "','" + soyisim + "','" + guvenlikKelimesi + "','Görevli')";
             sqlIslem(sql);
-        }
-
-        public override void insanSil(long insan_id)                                                                      //insan_id parametresiyle hem kullanıcı hem görevli silme
-        {
-            sqlIslem("UPDATE Insan SET insanDurumu='Silinmiş' WHERE insan_id=" + insan_id);
         }
 
         public override DataTable insanSorgula()                     //tüm insanları görüntüler (tc/şifre/güvenlik kelimesi hariç)

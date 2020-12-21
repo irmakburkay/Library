@@ -21,23 +21,11 @@ namespace KütüphaneV2
             bilgiAl(tc);
         }
 
-        public Kullanici(Insan insan, String sifre, String isim, String soyisim, String guvenlikKelimesi) : this(insan.tc)          //daha önceden silinmiş kayıt ile yeni kullanıcı oluşturur
-        {
-            sqlIslem("UPDATE Insan SET insanDurumu='Kullanıcı' WHERE insan_id=" + insan.insan_id);
-            bilgiGuncelle(insan, sifre, isim, soyisim, guvenlikKelimesi);
-            bilgiAl(insan.tc);
-        }
-
         public override void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi)  //parametrelerle veritabanında yeni kullanıcı oluşturur
         {
             String sql = "INSERT INTO Insan (tc,şifre,isim,soyisim,güvenlikKelimesi,insanDurumu) " +
                 "VALUES ('" + tc + "','" + sifre + "','" + isim + "','" + soyisim + "','" + guvenlikKelimesi + "','Kullanıcı')";
             sqlIslem(sql);
-        }
-
-        public override void insanSil(long insan_id)                                                                      //sadece kullanıcı nesnelerini silebilir
-        {
-                sqlIslem("UPDATE Insan SET insanDurumu='Silinmiş' WHERE insan_id=" + insan_id);   
         }
 
         public override DataTable kitapSorgula()                //kütüphanede veya kullanıcıda olan kitapları sorgular DataTable olarak çevirir (dataGridView.DataSource=DataTable)
