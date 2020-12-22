@@ -13,9 +13,10 @@ namespace KütüphaneV2
 {
     public partial class Form1 : Form
     {
-        List<Panel> anaPanel = new List<Panel>();
-        List<Panel> kullaniciPanel = new List<Panel>();
-        List<Panel> gorevliPanel = new List<Panel>();
+        List<Panel> panel_Liste = new List<Panel>();
+        List<Panel> anaPanel_Liste = new List<Panel>();
+        List<Panel> kullaniciPanel_Liste = new List<Panel>();
+        List<Panel> gorevliPanel_Liste = new List<Panel>();
 
         public Form1()
         {
@@ -25,31 +26,31 @@ namespace KütüphaneV2
         private void Form1_Load(object sender, EventArgs e)
         {
             Insan insan = new Insan();
-            anaPanel.Add(ana_Panel);
-            anaPanel.Add(kullanici_Panel);
-            anaPanel.Add(gorevli_Panel);
+            panel_Liste.Add(ana_Panel);
+            panel_Liste.Add(kullanici_Panel);
+            panel_Liste.Add(gorevli_Panel);
         }
 
         public void panelCagir(Panel panel, List<Panel> liste)                                                      //parametre olarak gönderilen panel ve panelin olduğu listede, paneli ön plana çıkarır
         {
             if (panel.Name == "ana_Panel" || panel.Name == "gorevli_Panel" || panel.Name == "kullanici_Panel")
             {
-                foreach (Panel panel1 in liste)
+                foreach (Panel paenl0 in liste)
                 {
-                    if (panel1.Name == panel.Name)
-                        panel1.Visible = true;
+                    if (paenl0.Name == panel.Name)
+                        paenl0.Visible = true;
                     else
-                        panel1.Visible = false;
+                        paenl0.Visible = false;
                 }
             }
             else
             {
-                foreach (Panel panel1 in liste)
+                foreach (Panel panel0 in liste)
                 {
-                    if (panel1.Name == panel.Name)
-                        panel1.BringToFront();
+                    if (panel0.Name == panel.Name)
+                        panel0.BringToFront();
                     else
-                        panel1.SendToBack();
+                        panel0.SendToBack();
                 }
             }
         }

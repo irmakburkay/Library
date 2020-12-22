@@ -31,9 +31,9 @@ namespace KütüphaneV2
         {
             this.ana_Panel = new System.Windows.Forms.Panel();
             this.kullanici_Panel = new System.Windows.Forms.Panel();
+            this.kullanici_Menu = new System.Windows.Forms.MenuStrip();
             this.gorevli_Panel = new System.Windows.Forms.Panel();
             this.gorevli_Menu = new System.Windows.Forms.MenuStrip();
-            this.kullanici_Menu = new System.Windows.Forms.MenuStrip();
             this.kullanici_Panel.SuspendLayout();
             this.gorevli_Panel.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +57,15 @@ namespace KütüphaneV2
             this.kullanici_Panel.TabIndex = 1;
             this.kullanici_Panel.Visible = false;
             // 
+            // kullanici_Menu
+            // 
+            this.kullanici_Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.kullanici_Menu.Location = new System.Drawing.Point(0, 0);
+            this.kullanici_Menu.Name = "kullanici_Menu";
+            this.kullanici_Menu.Size = new System.Drawing.Size(1324, 24);
+            this.kullanici_Menu.TabIndex = 0;
+            this.kullanici_Menu.Text = "menuStrip2";
+            // 
             // gorevli_Panel
             // 
             this.gorevli_Panel.BackColor = System.Drawing.SystemColors.Control;
@@ -72,18 +81,9 @@ namespace KütüphaneV2
             this.gorevli_Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.gorevli_Menu.Location = new System.Drawing.Point(0, 0);
             this.gorevli_Menu.Name = "gorevli_Menu";
-            this.gorevli_Menu.Size = new System.Drawing.Size(1324, 30);
+            this.gorevli_Menu.Size = new System.Drawing.Size(1324, 24);
             this.gorevli_Menu.TabIndex = 0;
             this.gorevli_Menu.Text = "menuStrip1";
-            // 
-            // kullanici_Menu
-            // 
-            this.kullanici_Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.kullanici_Menu.Location = new System.Drawing.Point(0, 0);
-            this.kullanici_Menu.Name = "kullanici_Menu";
-            this.kullanici_Menu.Size = new System.Drawing.Size(1324, 24);
-            this.kullanici_Menu.TabIndex = 0;
-            this.kullanici_Menu.Text = "menuStrip2";
             // 
             // Form1
             // 
