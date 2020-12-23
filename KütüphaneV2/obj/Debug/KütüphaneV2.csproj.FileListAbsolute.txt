@@ -12,9 +12,9 @@ C:\Users\sbirm\OneDrive\Documents\GitHub\Library\KütüphaneV2\bin\Debug\Kütüp
 C:\Users\sbirm\OneDrive\Documents\GitHub\Library\KütüphaneV2\bin\Debug\KütüphaneV2.exe
 C:\Users\sbirm\OneDrive\Documents\GitHub\Library\KütüphaneV2\bin\Debug\KütüphaneV2.pdb
 C:\Users\sbirm\OneDrive\Documents\GitHub\Library\KütüphaneV2\obj\Debug\KütüphaneV2.csprojAssemblyReference.cache
-C:\Users\sbirm\OneDrive\Documents\GitHub\Library\KütüphaneV2\obj\Debug\KütüphaneV2.Form1.resources
 C:\Users\sbirm\OneDrive\Documents\GitHub\Library\KütüphaneV2\obj\Debug\KütüphaneV2.Properties.Resources.resources
 C:\Users\sbirm\OneDrive\Documents\GitHub\Library\KütüphaneV2\obj\Debug\KütüphaneV2.csproj.GenerateResource.cache
 C:\Users\sbirm\OneDrive\Documents\GitHub\Library\KütüphaneV2\obj\Debug\KütüphaneV2.csproj.CoreCompileInputs.cache
 C:\Users\sbirm\OneDrive\Documents\GitHub\Library\KütüphaneV2\obj\Debug\KütüphaneV2.exe
 C:\Users\sbirm\OneDrive\Documents\GitHub\Library\KütüphaneV2\obj\Debug\KütüphaneV2.pdb
+C:\Users\sbirm\OneDrive\Documents\GitHub\Library\KütüphaneV2\obj\Debug\KütüphaneV2.KIS.resources

@@ -51,9 +51,8 @@ namespace KütüphaneV2
             return str;
         }
 
-        public void bilgiAl(String tc)                                                                                      //tc numarası verilen kullanıcının bilgilerini class değişkenlerine atar
-        {                                                                                                                   //tc numarası verilen kayıt yoksa messagebox ile mesaj yazar
-
+        public void bilgiAl(String tc)                                                                                      //tc numarası varsa, verilen kullanıcının bilgilerini class değişkenlerine atar
+        {                                                                                                                   
             if (sqlString("SELECT count(*) FROM Insan WHERE tc='" + tc + "'") != "0")
             {
                 insan_id = int.Parse(sqlString("SELECT insan_id FROM Insan WHERE tc='" + tc + "'"));
@@ -63,9 +62,6 @@ namespace KütüphaneV2
                 soyisim = sqlString("SELECT soyisim FROM Insan WHERE tc='" + tc + "'");
                 guvenlikKelimesi = sqlString("SELECT güvenlikKelimesi FROM Insan WHERE tc='" + tc + "'");
             }
-            else
-                MessageBox.Show(tc + " numaralı kullanıcı bulunmamaktadır");
-            baglanti.Close();
         }
 
         public void bilgiGuncelle(String sifre, String isim, String soyisim, String guvenlikKelimesi)          //kullanıcının parametre olarak girilen tüm bilgilerini günceller
@@ -78,7 +74,7 @@ namespace KütüphaneV2
             return sqlString("SELECT insanDurumu FROM Insan WHERE insan_id=" + insan_id);
         }
 
-        public long kitapBilgiAl(String isim, String yazar, String basımYili)           //ismi yazarı basım yılı verilen kitabın kitap_id numarasını çevirir
+        public long kitapIdAl(String isim, String yazar, String basımYili)           //ismi yazarı basım yılı verilen kitabın kitap_id numarasını çevirir
         {
             return int.Parse(sqlString("SELECT kitap_id FROM Kitap WHERE isim='" + isim + "' AND yazar='" + yazar + "' AND basımYılı='" + basımYili + "'"));
         }

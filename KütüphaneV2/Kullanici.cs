@@ -10,13 +10,13 @@ namespace KütüphaneV2
 {
     public class Kullanici:Insan
     {
-        public Kullanici(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi)             //yeni kayıt yapan kullanıcı
+        public Kullanici(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi):base()      //yeni kayıt yapan kullanıcı
         {
             insanEkle(tc, sifre, isim, soyisim, guvenlikKelimesi);                                                  //yeni kaydı veritabanına kaydeder
             bilgiAl(tc);                                                                                            //tc numarasına göre kullanıcı bilgilerini class değişkenlerine atar
         }   
 
-        public Kullanici(String tc)                                                                                 //kayıtlı kullanıcı girişi
+        public Kullanici(String tc):base()                                                                          //kayıtlı kullanıcı girişi
         {                                                                                                           //tc numarasına göre kullanıcı bilgilerini class değişkenlerine atar;
             bilgiAl(tc);
         }

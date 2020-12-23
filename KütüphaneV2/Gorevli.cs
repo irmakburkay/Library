@@ -10,7 +10,7 @@ namespace KütüphaneV2
 {
     public class Gorevli:Insan
     {
-        public Gorevli(String tc)                                                               //kayıtlı görevli girişi
+        public Gorevli(String tc):base()                                                        //kayıtlı görevli girişi
         {
             bilgiAl(tc);                                                                        //tc bilgisiyle görevli bilgilerini class değişkenlerine atar
         }
@@ -70,7 +70,7 @@ namespace KütüphaneV2
             String kitap_yazar = sqlString("SELECT kitap_yazar FROM Talep WHERE talep_id=" + talep_id);
             String kitap_basimYili = sqlString("SELECT kitap_basımYılı FROM Talep WHERE talep_id=" + talep_id);
             kitapEkle(kitap_isim, kitap_yazar, kitap_basimYili);
-            sqlIslem("UPDATE Talep SET kitap_id=" + kitapBilgiAl(kitap_isim, kitap_yazar, kitap_basimYili) + ",talepDurumu='Onaylandı' WHERE talep_id=" + talep_id);
+            sqlIslem("UPDATE Talep SET kitap_id=" + kitapIdAl(kitap_isim, kitap_yazar, kitap_basimYili) + ",talepDurumu='Onaylandı' WHERE talep_id=" + talep_id);
         }
 
         public override void kitapKirala(long talep_id)             //talep_id ile Talep tablosundan kitap_id ve insan_id alır, kiralama işlemini rapora ekler, kitap durumunu "Kullanıcı" olarak değiştirir ve talep durumunu "Onaylandı" olarak düzenler
