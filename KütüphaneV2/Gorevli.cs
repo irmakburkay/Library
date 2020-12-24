@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.OleDb;
 
 namespace KütüphaneV2
 {
-    public class Gorevli:Insan
+    public class Gorevli : Insan
     {
-        public Gorevli(String tc):base()                                                        //kayıtlı görevli girişi
+        public Gorevli(String tc)                                                               //kayıtlı görevli girişi
         {
             bilgiAl(tc);                                                                        //tc bilgisiyle görevli bilgilerini class değişkenlerine atar
         }

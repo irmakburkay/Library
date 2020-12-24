@@ -7,23 +7,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
 
 namespace KütüphaneV2
 {
     public partial class KIS : Form
     {
+        public Insan insan = new Insan();
+
         List<Panel> panel_Liste = new List<Panel>();
         List<Panel> anaPanel_Liste = new List<Panel>();
         List<Panel> kullaniciPanel_Liste = new List<Panel>();
         List<Panel> gorevliPanel_Liste = new List<Panel>();
+        
+        public void panelCagir(Panel panel, List<Panel> liste)                                                      //parametre olarak gönderilen panel ve panelin olduğu listede, paneli ön plana çıkarır
+        {
+            if (panel.Name == "ana_Panel" || panel.Name == "gorevli_Panel" || panel.Name == "kullanici_Panel")
+            {
+                foreach (Panel paenl0 in liste)
+                {
+                    if (paenl0.Name == panel.Name)
+                        paenl0.Visible = true;
+                    else
+                        paenl0.Visible = false;
+                }
+            }
+            else
+            {
+                foreach (Panel panel0 in liste)
+                {
+                    if (panel0.Name == panel.Name)
+                        panel0.BringToFront();
+                    else
+                        panel0.SendToBack();
+                }
+            }
+        }
 
         public KIS()
         {
             InitializeComponent();
         }
-
-        public Insan insan = new Insan();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -34,6 +57,8 @@ namespace KütüphaneV2
             panel_Liste.Add(kullanici_Panel);
             panel_Liste.Add(gorevli_Panel);
             panelCagir(ana_Panel, panel_Liste);
+
+            /*-------------------------------ana_Panel------------------------*/
             /*------------------------GİRİŞ---------------------------*/
             anaPanel_Liste.Add(ana_Giris_Panel);
             ana_PictureBox.ImageLocation = "icon.png";
@@ -75,32 +100,18 @@ namespace KütüphaneV2
             ana_ykYeniKayit_Button.Text = "Yeni Kayıt";
             ana_ykYeniKayit_Button.Cursor = Cursors.Hand;
             /*------------------------YeniKayıt-----------------------*/
+            /*-------------------------------ana_Panel------------------------*/
+
+            /*-------------------------------kullanıcı_Panel------------------*/
+            //kodları buraya yazın
+            /*-------------------------------kullanıcı_Panel------------------*/
+
+            /*-------------------------------görevli_Panel--------------------*/
+            //kodları buraya yazın
+            /*-------------------------------görevli_Panel--------------------*/
         }
 
-        public void panelCagir(Panel panel, List<Panel> liste)                                                      //parametre olarak gönderilen panel ve panelin olduğu listede, paneli ön plana çıkarır
-        {
-            if (panel.Name == "ana_Panel" || panel.Name == "gorevli_Panel" || panel.Name == "kullanici_Panel")
-            {
-                foreach (Panel paenl0 in liste)
-                {
-                    if (paenl0.Name == panel.Name)
-                        paenl0.Visible = true;
-                    else
-                        paenl0.Visible = false;
-                }
-            }
-            else
-            {
-                foreach (Panel panel0 in liste)
-                {
-                    if (panel0.Name == panel.Name)
-                        panel0.BringToFront();
-                    else
-                        panel0.SendToBack();
-                }
-            }
-        }
-
+        /*-------------------------------ana_Panel------------------------*/
         /*------------------------GİRİŞ---------------------------*/
 
         private void ana_girisSifremiunuttum_Label_MouseEnter(object sender, EventArgs e)                               //mouse label üstündeyken yazının altını çizer
@@ -182,6 +193,7 @@ namespace KütüphaneV2
                             }
                             ana_girisTc_textBox.Text = "";
                             ana_girisSifre_textBox.Text = "";
+                            ana_girisSifre_checkBox.Checked = false;
                             if (insan is Kullanici)
                                 panelCagir(kullanici_Panel, panel_Liste);
                             else if (insan is Gorevli)
@@ -296,5 +308,26 @@ namespace KütüphaneV2
         }
 
         /*------------------------YeniKayıt-----------------------*/
+        /*-------------------------------ana_Panel------------------------*/
+        /*-------------------------------kullanıcı_Panel------------------*/
+
+        private void kullanici_MenuCikis_Click(object sender, EventArgs e)      //çıkış yapar ,giriş panelini getirir, insan nesnesini insan kurucu metoduyla yeniden oluşturur(içi boş olur)
+        {
+            MessageBox.Show("Çıkış Yapıldı!");
+            panelCagir(ana_Panel, panel_Liste);
+            insan = new Insan();
+        }
+
+        /*-------------------------------kullanıcı_Panel------------------*/
+        /*-------------------------------görevli_Panel--------------------*/
+
+        private void gorevli_MenuCikis_Click(object sender, EventArgs e)      //çıkış yapar ,giriş panelini getirir, insan nesnesini insan kurucu metoduyla yeniden oluşturur(içi boş olur)
+        {
+            MessageBox.Show("Çıkış Yapıldı!");
+            panelCagir(ana_Panel, panel_Liste);
+            insan = new Insan();
+        }
+
+        /*-------------------------------görevli_Panel--------------------*/
     }
 }
