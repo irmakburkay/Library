@@ -60,9 +60,9 @@ namespace KütüphaneV2
         public virtual void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi) { }
         public virtual void gorevliAta(long insan_id) { }
         public virtual void kullaniciAta(long insan_id) { }
-        public virtual DataTable kitapSorgula() { return null; }
+        public virtual DataTable kitapSorgula(String isim = "", String yazar = "", String basımYili = "") { return null; }
         public virtual DataTable raporSorgula() { return null; }
-        public virtual DataTable insanSorgula() { return null; }
+        public virtual DataTable insanSorgula(String isim="", String soyisim="") { return null; }
         public virtual DataTable talepSorgula() { return null; }
         public virtual void kitapEkle(String isim, String yazar, String basımYili) { }
         public virtual void kitapSil(long kitap_id) { }

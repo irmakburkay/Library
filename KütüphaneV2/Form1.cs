@@ -21,26 +21,15 @@ namespace KütüphaneV2
         
         public void panelCagir(Panel panel, List<Panel> liste)                                                      //parametre olarak gönderilen panel ve panelin olduğu listede, paneli ön plana çıkarır
         {
-            if (panel.Name == "ana_Panel" || panel.Name == "gorevli_Panel" || panel.Name == "kullanici_Panel")
+
+            foreach (Panel paenl0 in liste)
             {
-                foreach (Panel paenl0 in liste)
-                {
-                    if (paenl0.Name == panel.Name)
-                        paenl0.Visible = true;
-                    else
-                        paenl0.Visible = false;
-                }
+                if (paenl0.Name == panel.Name)
+                    paenl0.Visible = true;
+                else
+                    paenl0.Visible = false;
             }
-            else
-            {
-                foreach (Panel panel0 in liste)
-                {
-                    if (panel0.Name == panel.Name)
-                        panel0.BringToFront();
-                    else
-                        panel0.SendToBack();
-                }
-            }
+
         }
 
         public KIS()
@@ -262,7 +251,7 @@ namespace KütüphaneV2
         /*------------------------ŞifremiUnuttum------------------*/
         /*------------------------YeniKayıt-----------------------*/
 
-        private void ana_ykKapat_Button_Click(object sender, EventArgs e)                   //yeni kullanıcı panelindeki textbox içlerini boşaltır ve giriş paneli ekrana getirir                                    
+        private void ana_ykKapat_Button_Click(object sender, EventArgs e)                   //yeni kullanıcı panelindeki textbox içlerini boşaltır ve giriş panelini ekrana getirir                                    
         {
             panelCagir(ana_Giris_Panel, anaPanel_Liste);
             ana_ykTc_textBox.Text = "";

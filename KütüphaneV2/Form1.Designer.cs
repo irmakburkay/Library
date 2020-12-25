@@ -63,9 +63,9 @@ namespace KütüphaneV2
             this.ana_PictureBox = new System.Windows.Forms.PictureBox();
             this.kullanici_Panel = new System.Windows.Forms.Panel();
             this.kullanici_Menu = new System.Windows.Forms.MenuStrip();
+            this.kullanici_MenuCikis = new System.Windows.Forms.ToolStripMenuItem();
             this.gorevli_Panel = new System.Windows.Forms.Panel();
             this.gorevli_Menu = new System.Windows.Forms.MenuStrip();
-            this.kullanici_MenuCikis = new System.Windows.Forms.ToolStripMenuItem();
             this.gorevli_MenuCikis = new System.Windows.Forms.ToolStripMenuItem();
             this.ana_Panel.SuspendLayout();
             this.ana_Giris_Panel.SuspendLayout();
@@ -422,9 +422,17 @@ namespace KütüphaneV2
             this.kullanici_MenuCikis});
             this.kullanici_Menu.Location = new System.Drawing.Point(0, 0);
             this.kullanici_Menu.Name = "kullanici_Menu";
-            this.kullanici_Menu.Size = new System.Drawing.Size(1324, 30);
+            this.kullanici_Menu.Size = new System.Drawing.Size(1324, 27);
             this.kullanici_Menu.TabIndex = 0;
             this.kullanici_Menu.Text = "menuStrip2";
+            // 
+            // kullanici_MenuCikis
+            // 
+            this.kullanici_MenuCikis.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.kullanici_MenuCikis.Name = "kullanici_MenuCikis";
+            this.kullanici_MenuCikis.Size = new System.Drawing.Size(59, 23);
+            this.kullanici_MenuCikis.Text = "Çıkış";
+            this.kullanici_MenuCikis.Click += new System.EventHandler(this.kullanici_MenuCikis_Click);
             // 
             // gorevli_Panel
             // 
@@ -445,22 +453,14 @@ namespace KütüphaneV2
             this.gorevli_MenuCikis});
             this.gorevli_Menu.Location = new System.Drawing.Point(0, 0);
             this.gorevli_Menu.Name = "gorevli_Menu";
-            this.gorevli_Menu.Size = new System.Drawing.Size(1324, 30);
+            this.gorevli_Menu.Size = new System.Drawing.Size(1324, 27);
             this.gorevli_Menu.TabIndex = 0;
             this.gorevli_Menu.Text = "menuStrip1";
-            // 
-            // kullanici_MenuCikis
-            // 
-            this.kullanici_MenuCikis.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.kullanici_MenuCikis.Name = "kullanici_MenuCikis";
-            this.kullanici_MenuCikis.Size = new System.Drawing.Size(59, 26);
-            this.kullanici_MenuCikis.Text = "Çıkış";
-            this.kullanici_MenuCikis.Click += new System.EventHandler(this.kullanici_MenuCikis_Click);
             // 
             // gorevli_MenuCikis
             // 
             this.gorevli_MenuCikis.Name = "gorevli_MenuCikis";
-            this.gorevli_MenuCikis.Size = new System.Drawing.Size(59, 24);
+            this.gorevli_MenuCikis.Size = new System.Drawing.Size(59, 23);
             this.gorevli_MenuCikis.Text = "Çıkış";
             this.gorevli_MenuCikis.Click += new System.EventHandler(this.gorevli_MenuCikis_Click);
             // 

@@ -12,7 +12,6 @@ namespace KütüphaneV2
         public Kullanici(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi)             //yeni kayıt yapan kullanıcı
         {
             insanEkle(tc, sifre, isim, soyisim, guvenlikKelimesi);                                                  //yeni kaydı veritabanına kaydeder
-            bilgiAl(tc);                                                                                            //tc numarasına göre kullanıcı bilgilerini class değişkenlerine atar
         }   
 
         public Kullanici(String tc)                                                                                 //kayıtlı kullanıcı girişi
@@ -27,10 +26,19 @@ namespace KütüphaneV2
             sqlIslem(sql);
         }
 
-        public override DataTable kitapSorgula()                //kütüphanede veya kullanıcıda olan kitapları sorgular DataTable olarak çevirir (dataGridView.DataSource=DataTable)
+        public override DataTable kitapSorgula(String isim, String yazar, String basımYili)                //kütüphanede veya kullanıcıda olan kitapları sorgular DataTable olarak çevirir (dataGridView.DataSource=DataTable)(eğer parametre olarak kitap özellikleri verilirse buna göre sorgulamayı yapar)
         {
             String sql = "SELECT kitap_id as [ID], isim as [Kitap İsmi], yazar as [Yazar], basımYılı as [Basım Yılı], kitapDurumu as [Kitap Durumu] " +
-                "FROM Kitap WHERE kitapDurumu='Kütüphane' OR kitapDurumu='Kullanıcı'";
+                "FROM Kitap WHERE kitapDurumu='Kütüphane' OR kitapDurumu='Kullanıcı' ";
+            if (isim.Length > 0 || yazar.Length > 0 || basımYili.Length > 0)
+            {
+                if (isim.Length > 0)
+                    sql += "AND isim='" + isim + "' ";
+                if (yazar.Length > 0)
+                    sql += "AND isim='" + yazar + "' ";
+                if (basımYili.Length > 0)
+                    sql += "AND isim='" + basımYili + "' ";
+            }
             return sqlTablo(sql);
         }
 
