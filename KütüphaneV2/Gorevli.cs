@@ -22,33 +22,15 @@ namespace KütüphaneV2
             sqlIslem(sql);
         }
 
-        public override DataTable insanSorgula(String isim, String soyisim)                     //tüm insanları görüntüler (tc/şifre/güvenlik kelimesi hariç)(eğer parametre olarak insan isim veya soyisim girilirse bunlara göre sorgulama yapar)
+        public override DataTable insanSorgula()                     //tüm insanları görüntüler (tc/şifre/güvenlik kelimesi hariç)
         {
-            String sql = "SELECT insan_id as [ID], isim as [İsim], soyisim as [Soyisim], insanDurumu as [Durum] FROM Insan ";
-            if (isim.Length > 0 || soyisim.Length > 0)
-            {
-                sql += "WHERE 0=0";
-                if (isim.Length > 0)
-                    sql += "AND isim='" + isim + "' ";
-                if (soyisim.Length > 0)
-                    sql += "AND isim='" + soyisim + "' ";
-            }
+            String sql = "SELECT insan_id as [ID], isim as [İsim], soyisim as [Soyisim], insanDurumu as [Durum] FROM Insan";
             return sqlTablo(sql);
         }
 
-        public override DataTable kitapSorgula(String isim, String yazar, String basımYili)            //tüm kitapları sorgular DataTable olarak çevirir (dataGridView.DataSource=DataTable) (eğer parametre olarak kitap özellikleri verilirse aramayı ona göre yapar)
+        public override DataTable kitapSorgula()            //tüm kitapları sorgular DataTable olarak çevirir (dataGridView.DataSource=DataTable)
         {
-            String sql = "SELECT kitap_id as [ID], isim as [Kitap İsmi],yazar as [Yazar],basımYılı as [Basım Yılı],kitapDurumu as [Kitap Durumu] FROM Kitap ";
-            if (isim.Length > 0 || yazar.Length > 0 || basımYili.Length > 0)
-            {
-                sql += "WHERE 0=0";
-                if (isim.Length > 0)
-                    sql += "AND isim='" + isim + "' ";
-                if (yazar.Length > 0)
-                    sql += "AND isim='" + yazar + "' ";
-                if (basımYili.Length > 0)
-                    sql += "AND isim='" + basımYili + "' ";
-            }
+            String sql = "SELECT kitap_id as [ID], isim as [Kitap İsmi],yazar as [Yazar],basımYılı as [Basım Yılı],kitapDurumu as [Kitap Durumu] FROM Kitap";
             return sqlTablo(sql);
         }
 

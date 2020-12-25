@@ -26,19 +26,10 @@ namespace KütüphaneV2
             sqlIslem(sql);
         }
 
-        public override DataTable kitapSorgula(String isim, String yazar, String basımYili)                //kütüphanede veya kullanıcıda olan kitapları sorgular DataTable olarak çevirir (dataGridView.DataSource=DataTable)(eğer parametre olarak kitap özellikleri verilirse buna göre sorgulamayı yapar)
+        public override DataTable kitapSorgula()                //kütüphanede veya kullanıcıda olan kitapları sorgular DataTable olarak çevirir (dataGridView.DataSource=DataTable)
         {
             String sql = "SELECT kitap_id as [ID], isim as [Kitap İsmi], yazar as [Yazar], basımYılı as [Basım Yılı], kitapDurumu as [Kitap Durumu] " +
-                "FROM Kitap WHERE kitapDurumu='Kütüphane' OR kitapDurumu='Kullanıcı' ";
-            if (isim.Length > 0 || yazar.Length > 0 || basımYili.Length > 0)
-            {
-                if (isim.Length > 0)
-                    sql += "AND isim='" + isim + "' ";
-                if (yazar.Length > 0)
-                    sql += "AND isim='" + yazar + "' ";
-                if (basımYili.Length > 0)
-                    sql += "AND isim='" + basımYili + "' ";
-            }
+                "FROM Kitap WHERE kitapDurumu='Kütüphane' OR kitapDurumu='Kullanıcı'";
             return sqlTablo(sql);
         }
 
