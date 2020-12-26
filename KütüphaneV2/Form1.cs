@@ -1,4 +1,5 @@
-﻿using System;
+﻿//komut satırı
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
