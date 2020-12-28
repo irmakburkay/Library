@@ -1,4 +1,5 @@
-﻿using System;
+﻿//yorum satırı
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
