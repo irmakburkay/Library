@@ -16,7 +16,7 @@ namespace KütüphaneV2
 
         List<Panel> panel_Liste = new List<Panel>();
         List<Panel> anaPanel_Liste = new List<Panel>();
-        List<Panel> kullaniciPanel_Liste = new List<Panel>();
+        List<Panel> kullaniciPanelListe = new List<Panel>();
         List<Panel> gorevliPanel_Liste = new List<Panel>();
         
         public void panelCagir(Panel panel, List<Panel> liste)                                                      //parametre olarak gönderilen panel ve panelin olduğu listede, paneli ön plana çıkarır
