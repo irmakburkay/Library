@@ -319,6 +319,58 @@ namespace KütüphaneV2
             insan = new Insan();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            insan.kitapEkle(textBox1_kitapadi.Text, maskedTextBox_basimyili.Mask, gorevli_paneli_textBox2_yazar.Text);
+            int i = dataGridView2_CellContentClick.Roms.Add();
+            i = 0;
+            dataGridView2_CellContentClick.Roms[i].cells[0].value = textBox1_kitapadi.Text;
+            dataGridView2_CellContentClick.Roms[i].cells[1].value = maskedTextBox_basimyili.Mask;
+            dataGridView2_CellContentClick.Roms[i].cells[2].value = gorevli_paneli_textBox2_yazar.Text;
+
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            insan.kitapEkle(kullanicipaneli_textBox2_kitapadi.Text, kullanicipaenli_maskedTextBox1_basimyili.Mask, kullanicipaneli_textBox_yazar.Text);
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void kullanici_kitapekle_paneli_Paint(object sender, PaintEventArgs e)
+        {
+            dataGridView1.columnCount = 3;
+            dataGridView1.Columns[0].Name = "Kitap Adi";
+            dataGridView1.Columns[1].Name = "Basim Yili";
+            dataGridView1.Columns[2].Name = "Yazar";
+
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView2.columnCount = 3;
+            dataGridView2.Columns[0].Name = "Kitap Adi";
+            dataGridView2.Columns[1].Name = "Basim Yili";
+            dataGridView2.Columns[2].Name = "Yazar";
+        }
+
+        private void textBox1_kitapadi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_yazar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         /*-------------------------------görevli_Panel--------------------*/
     }
 }
