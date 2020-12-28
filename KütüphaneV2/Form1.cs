@@ -94,10 +94,16 @@ namespace KütüphaneV2
 
             /*-------------------------------kullanıcı_Panel------------------*/
             //kodları buraya yazın
+            /*-------------------------------yenikitap------------------------*/
+            kullaniciPanel_Liste.Add(kullanici_kitapekle_paneli);
+            /*-------------------------------yenikitap------------------------*/
             /*-------------------------------kullanıcı_Panel------------------*/
 
             /*-------------------------------görevli_Panel--------------------*/
             //kodları buraya yazın
+            /*-------------------------------yenikitap------------------------*/
+            gorevliPanel_Liste.Add(gorevli_YeniKitap_Panel);
+            /*-------------------------------yenikitap------------------------*/
             /*-------------------------------görevli_Panel--------------------*/
         }
 
@@ -308,6 +314,12 @@ namespace KütüphaneV2
             insan = new Insan();
         }
 
+        private void yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCagir(kullanici_kitapekle_paneli, kullaniciPanel_Liste);
+        }
+
+
         /*-------------------------------kullanıcı_Panel------------------*/
         /*-------------------------------görevli_Panel--------------------*/
 
@@ -320,21 +332,15 @@ namespace KütüphaneV2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            insan.kitapEkle(textBox1_kitapadi.Text, maskedTextBox_basimyili.Mask, gorevli_paneli_textBox2_yazar.Text);
-            int i = dataGridView2_CellContentClick.Roms.Add();
-            i = 0;
-            dataGridView2_CellContentClick.Roms[i].cells[0].value = textBox1_kitapadi.Text;
-            dataGridView2_CellContentClick.Roms[i].cells[1].value = maskedTextBox_basimyili.Mask;
-            dataGridView2_CellContentClick.Roms[i].cells[2].value = gorevli_paneli_textBox2_yazar.Text;
-
-
+            insan.kitapEkle(gorevli_YeniKitap_kitapadi_textBox.Text, gorevli_paneli_textBox2_yazar.Text, maskedTextBox_basimyili.Text);
+            dataGridView1.DataSource = insan.talepSorgula();
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            insan.kitapEkle(kullanicipaneli_textBox2_kitapadi.Text, kullanicipaenli_maskedTextBox1_basimyili.Mask, kullanicipaneli_textBox_yazar.Text);
-
+            insan.kitapEkle(kullanicipaneli_textBox2_kitapadi.Text, kullanicipaneli_textBox_yazar.Text,, kullanicipaenli_maskedTextBox1_basimyili.Text);
+            gorevlipaneli_dataGridView.DataSource = insan.kitapSorgula();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -344,7 +350,7 @@ namespace KütüphaneV2
 
         private void kullanici_kitapekle_paneli_Paint(object sender, PaintEventArgs e)
         {
-            dataGridView1.columnCount = 3;
+            dataGridView1.ColumnCount = 3;
             dataGridView1.Columns[0].Name = "Kitap Adi";
             dataGridView1.Columns[1].Name = "Basim Yili";
             dataGridView1.Columns[2].Name = "Yazar";
@@ -354,10 +360,10 @@ namespace KütüphaneV2
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView2.columnCount = 3;
-            dataGridView2.Columns[0].Name = "Kitap Adi";
-            dataGridView2.Columns[1].Name = "Basim Yili";
-            dataGridView2.Columns[2].Name = "Yazar";
+            gorevlipaneli_dataGridView.ColumnCount = 3;
+            gorevlipaneli_dataGridView.Columns[0].Name = "Kitap Adi";
+            gorevlipaneli_dataGridView.Columns[1].Name = "Basim Yili";
+            gorevlipaneli_dataGridView.Columns[2].Name = "Yazar";
         }
 
         private void textBox1_kitapadi_TextChanged(object sender, EventArgs e)
@@ -369,6 +375,12 @@ namespace KütüphaneV2
         {
 
         }
+
+        private void yeniKitapToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            panelCagir(gorevli_YeniKitap_Panel, gorevliPanel_Liste);
+        }
+
 
         /*-------------------------------görevli_Panel--------------------*/
     }
