@@ -98,6 +98,9 @@ namespace KütüphaneV2
 
             /*-------------------------------görevli_Panel--------------------*/
             //kodları buraya yazın
+            /*-------------------------------yeniKitap------------------------*/
+            gorevliPanel_Liste.Add(gorevliYeniKitap_Panel);
+            /*-------------------------------yeniKitap------------------------*/
             /*-------------------------------görevli_Panel--------------------*/
         }
 
@@ -316,6 +319,11 @@ namespace KütüphaneV2
             MessageBox.Show("Çıkış Yapıldı!");
             panelCagir(ana_Panel, panel_Liste);
             insan = new Insan();
+        }
+
+        private void gorevli_yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCagir(gorevliYeniKitap_Panel, gorevliPanel_Liste);
         }
 
         /*-------------------------------görevli_Panel--------------------*/
