@@ -44,7 +44,7 @@ namespace KütüphaneV2
             return sqlTablo(sql);
         }
 
-        public override DataTable talepSorgula()                                //görevli için yeni kitap talepleri, kiralama talepleri, iade talepleri tablosunu DataTable olarak çevirir
+        public override DataTable talepSorgula()                                //görevli için yeni kitap talepleri, kiralama talepleri tablosunu DataTable olarak çevirir
         {
             String sql = "SELECT talep_id as [ID],işlem as [İşlem], talepTarihi as [Tarih], " +
                 "Insan.isim as [Ad], Insan.soyisim as [Soyisim], " +

@@ -38,3 +38,13 @@ C:\Users\njemk\Source\Repos\LibraryDevelop2\KütüphaneV2\obj\Debug\KütüphaneV
 C:\Users\njemk\Source\Repos\LibraryDevelop2\KütüphaneV2\obj\Debug\KütüphaneV2.csproj.CoreCompileInputs.cache
 C:\Users\njemk\Source\Repos\LibraryDevelop2\KütüphaneV2\obj\Debug\KütüphaneV2.exe
 C:\Users\njemk\Source\Repos\LibraryDevelop2\KütüphaneV2\obj\Debug\KütüphaneV2.pdb
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\LibraryBase\KütüphaneV2\bin\Debug\KütüphaneV2.exe.config
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\LibraryBase\KütüphaneV2\bin\Debug\KütüphaneV2.exe
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\LibraryBase\KütüphaneV2\bin\Debug\KütüphaneV2.pdb
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\LibraryBase\KütüphaneV2\obj\Debug\KütüphaneV2.csprojAssemblyReference.cache
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\LibraryBase\KütüphaneV2\obj\Debug\KütüphaneV2.KIS.resources
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\LibraryBase\KütüphaneV2\obj\Debug\KütüphaneV2.Properties.Resources.resources
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\LibraryBase\KütüphaneV2\obj\Debug\KütüphaneV2.csproj.GenerateResource.cache
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\LibraryBase\KütüphaneV2\obj\Debug\KütüphaneV2.csproj.CoreCompileInputs.cache
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\LibraryBase\KütüphaneV2\obj\Debug\KütüphaneV2.exe
+C:\Users\sbirm\OneDrive\Masaüstü\Ders\LibraryBase\KütüphaneV2\obj\Debug\KütüphaneV2.pdb
