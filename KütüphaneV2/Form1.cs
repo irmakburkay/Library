@@ -325,6 +325,62 @@ namespace KütüphaneV2
             panelCagir(gorevliYeniKitap_Panel, gorevliPanel_Liste);
         }
 
+        private void gorevlipaneli_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            gorevlipaneli_dataGridView.ColumnCount = 3;
+            gorevlipaneli_dataGridView.Columns[0].Name = "Kitap Adi";
+            gorevlipaneli_dataGridView.Columns[1].Name = "Basim Yili";
+            gorevlipaneli_dataGridView.Columns[2].Name = "Yazar";
+        }
+
+        private void gorevli_KitapEkle_Butonu_Click(object sender, EventArgs e)
+        {
+            insan.kitapEkle(gorevli_YeniKitap_kitapadi_textBox.Text, gorevli_paneli_textBox2_yazar.Text, maskedTextBox_basimyili.Text);
+            gorevlipaneli_dataGridView.DataSource = insan.talepSorgula();
+        }
+
+        private void gorevli_YeniKitap_kitapadi_textBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KullaniciPaneli_KitapTalepEt_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            KullaniciPaneli_KitapTalepEt_dataGridView.ColumnCount = 3;
+            KullaniciPaneli_KitapTalepEt_dataGridView.Columns[0].Name = "kitap adi";
+            KullaniciPaneli_KitapTalepEt_dataGridView.Columns[1].Name = "Basim Yili";
+            KullaniciPaneli_KitapTalepEt_dataGridView.Columns[2].Name = "Yazar";
+
+        }
+
+        private void kullaniciPaneli_KitapTalepEt_Button_Click(object sender, EventArgs e)
+        {
+            insan.kitapEkle(kullaniciPaneli_KitapAdi_textbox.Text, kullaniciPaneli_Yazar_textbox.Text, kullaniciPaneli_BasimYili_maskedTextBox.Text);
+            KullaniciPaneli_KitapTalepEt_dataGridView.DataSource = insan.kitapSorgula();
+
+        }
+
+        private void yeniKitapTalebiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCagir(KullaniciPaneli_KitapEkle, kullaniciPanel_Liste);
+
+        }
+
+        private void bilgilerimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCagir(KullaniciPaneli_Bilglerim_Paneli, kullaniciPanel_Liste);
+        }
+
+        private void Kullanici_Paneli_BilgilerimiGöster_butonu_Click(object sender, EventArgs e)
+        {
+            
+
+
         /*-------------------------------görevli_Panel--------------------*/
     }
 }
