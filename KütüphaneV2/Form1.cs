@@ -77,9 +77,9 @@ namespace KütüphaneV2
             ana_suSifreAl_Button.Cursor = Cursors.Hand;
             /*------------------------ŞifremiUnuttum------------------*/
             /*------------------------YeniKayıt-----------------------*/
-            anaPanel_Liste.Add(ana_YeniKayıt_Panel);
-            ana_YeniKayıt_Panel.BorderStyle = BorderStyle.FixedSingle;
-            ana_YeniKayıt_Panel.BackColor = Color.White;
+            anaPanel_Liste.Add(ana_YeniKayit_Panel);
+            ana_YeniKayit_Panel.BorderStyle = BorderStyle.FixedSingle;
+            ana_YeniKayit_Panel.BackColor = Color.White;
             ana_ykTc_Label.Text = "T.C.K.N.";
             ana_ykAd_Label.Text = "Ad";
             ana_ykSoyad_Label.Text = "Soyad";
@@ -136,7 +136,7 @@ namespace KütüphaneV2
         
         private void ana_girisYeniKayit_Label_Click(object sender, EventArgs e)                                         //giriş panelindeki textbox içlerini boşaltır ve yeni kayıt paneli ekrana getirir
         {
-            panelCagir(ana_YeniKayıt_Panel, anaPanel_Liste);
+            panelCagir(ana_YeniKayit_Panel, anaPanel_Liste);
             ana_girisTc_textBox.Text = "";
             ana_girisSifre_textBox.Text = "";
         }
