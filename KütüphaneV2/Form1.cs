@@ -93,12 +93,15 @@ namespace KütüphaneV2
 
             /*-------------------------------kullanıcı_Panel------------------*/
             //kodları buraya yazın
+            /*-------------------------------yeniKitap------------------------*/
+            kullaniciPanelListe.Add(kullanici_YeniKitap_Panel);
+            /*-------------------------------yeniKitap------------------------*/
             /*-------------------------------kullanıcı_Panel------------------*/
 
             /*-------------------------------görevli_Panel--------------------*/
             //kodları buraya yazın
             /*-------------------------------yeniKitap------------------------*/
-            gorevliPanel_Liste.Add(gorevliYeniKitap_Panel);
+            gorevliPanel_Liste.Add(gorevli_YeniKitap_Panel);
             /*-------------------------------yeniKitap------------------------*/
             /*-------------------------------görevli_Panel--------------------*/
         }
@@ -310,6 +313,20 @@ namespace KütüphaneV2
             insan = new Insan();
         }
 
+        /*--------------------------------Kitap Ekle----------------------*/
+        private void kullanici_yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCagir(kullanici_YeniKitap_Panel, kullaniciPanelListe);
+            kullanici_YeniKitap_dataGridView.DataSource = insan.talepSorgula();
+        }
+
+        private void kullanici_YeniKitap_button_Click(object sender, EventArgs e)
+        {
+            insan.kitapEkle(kullanici_YeniKitap_kitapadi_textBox.Text, kullanici_YeniKitap_yazar_textBox.Text, kullanici_YeniKitap_basimyili_maskedTextBox.Text);
+            kullanici_YeniKitap_dataGridView.DataSource = insan.talepSorgula();
+        }
+        /*--------------------------------Kitap Ekle----------------------*/
+
         /*-------------------------------kullanıcı_Panel------------------*/
         /*-------------------------------görevli_Panel--------------------*/
 
@@ -320,10 +337,26 @@ namespace KütüphaneV2
             insan = new Insan();
         }
 
+        /*--------------------------------Kitap Ekle----------------------*/
         private void gorevli_yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panelCagir(gorevliYeniKitap_Panel, gorevliPanel_Liste);
+            panelCagir(gorevli_YeniKitap_Panel, gorevliPanel_Liste);
+            gorevli_YeniKitap_dataGridView.DataSource = insan.kitapSorgula();
         }
+
+        private void gorevli_YeniKitap_Button_Click(object sender, EventArgs e)
+        {
+            insan.kitapEkle(gorevli_YeniKitap_kitapadi_textBox.Text, gorevli_YeniKitap_yazar_textBox.Text, gorevli_YeniKitap_basimyili_maskedTextBox.Text);
+            gorevli_YeniKitap_dataGridView.DataSource = insan.kitapSorgula();
+        }
+
+
+
+
+
+
+
+        /*--------------------------------Kitap Ekle----------------------*/
 
         /*-------------------------------görevli_Panel--------------------*/
     }
