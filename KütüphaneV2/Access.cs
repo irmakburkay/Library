@@ -42,9 +42,9 @@ namespace KütüphaneV2
         {
             komut.CommandText = sql;
             baglanti.Open();
-            String str = komut.ExecuteScalar().ToString();
+            sql = komut.ExecuteScalar().ToString();
             baglanti.Close();
-            return str;
+            return sql;
         }
     }
 }
