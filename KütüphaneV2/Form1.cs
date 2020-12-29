@@ -93,12 +93,15 @@ namespace KütüphaneV2
 
             /*-------------------------------kullanıcı_Panel------------------*/
             //kodları buraya yazın
+            /*-------------------------------yeniKitap------------------------*/
+            kullaniciPanelListe.Add(kullanici_YeniKitap_Panel);
+            /*-------------------------------yeniKitap------------------------*/
             /*-------------------------------kullanıcı_Panel------------------*/
 
             /*-------------------------------görevli_Panel--------------------*/
             //kodları buraya yazın
             /*-------------------------------yeniKitap------------------------*/
-            gorevliPanel_Liste.Add(gorevliYeniKitap_Panel);
+            gorevliPanel_Liste.Add(gorevli_YeniKitap_Panel);
             /*-------------------------------yeniKitap------------------------*/
             /*-------------------------------görevli_Panel--------------------*/
         }
@@ -310,6 +313,20 @@ namespace KütüphaneV2
             insan = new Insan();
         }
 
+        /*--------------------------------Kitap Ekle----------------------*/
+        private void kullanici_yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCagir(kullanici_YeniKitap_Panel, kullaniciPanelListe);
+            kullanici_YeniKitap_dataGridView.DataSource = insan.talepSorgula();
+        }
+
+        private void kullanici_YeniKitap_button_Click(object sender, EventArgs e)
+        {
+            insan.kitapEkle(kullanici_YeniKitap_kitapadi_textBox.Text, kullanici_YeniKitap_yazar_textBox.Text, kullanici_YeniKitap_basimyili_maskedTextBox.Text);
+            kullanici_YeniKitap_dataGridView.DataSource = insan.talepSorgula();
+        }
+        /*--------------------------------Kitap Ekle----------------------*/
+
         /*-------------------------------kullanıcı_Panel------------------*/
         /*-------------------------------görevli_Panel--------------------*/
 
@@ -320,66 +337,26 @@ namespace KütüphaneV2
             insan = new Insan();
         }
 
+        /*--------------------------------Kitap Ekle----------------------*/
         private void gorevli_yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panelCagir(gorevliYeniKitap_Panel, gorevliPanel_Liste);
+            panelCagir(gorevli_YeniKitap_Panel, gorevliPanel_Liste);
+            gorevli_YeniKitap_dataGridView.DataSource = insan.kitapSorgula();
         }
 
-        private void gorevlipaneli_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void gorevli_YeniKitap_Button_Click(object sender, EventArgs e)
         {
-            gorevlipaneli_dataGridView.ColumnCount = 3;
-            gorevlipaneli_dataGridView.Columns[0].Name = "Kitap Adi";
-            gorevlipaneli_dataGridView.Columns[1].Name = "Basim Yili";
-            gorevlipaneli_dataGridView.Columns[2].Name = "Yazar";
+            insan.kitapEkle(gorevli_YeniKitap_kitapadi_textBox.Text, gorevli_YeniKitap_yazar_textBox.Text, gorevli_YeniKitap_basimyili_maskedTextBox.Text);
+            gorevli_YeniKitap_dataGridView.DataSource = insan.kitapSorgula();
         }
 
-        private void gorevli_KitapEkle_Butonu_Click(object sender, EventArgs e)
-        {
-            insan.kitapEkle(gorevli_YeniKitap_kitapadi_textBox.Text, gorevli_paneli_textBox2_yazar.Text, maskedTextBox_basimyili.Text);
-            gorevlipaneli_dataGridView.DataSource = insan.talepSorgula();
-        }
 
-        private void gorevli_YeniKitap_kitapadi_textBox_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void KullaniciPaneli_KitapTalepEt_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            KullaniciPaneli_KitapTalepEt_dataGridView.ColumnCount = 3;
-            KullaniciPaneli_KitapTalepEt_dataGridView.Columns[0].Name = "kitap adi";
-            KullaniciPaneli_KitapTalepEt_dataGridView.Columns[1].Name = "Basim Yili";
-            KullaniciPaneli_KitapTalepEt_dataGridView.Columns[2].Name = "Yazar";
 
-        }
-
-        private void kullaniciPaneli_KitapTalepEt_Button_Click(object sender, EventArgs e)
-        {
-            insan.kitapEkle(kullaniciPaneli_KitapAdi_textbox.Text, kullaniciPaneli_Yazar_textbox.Text, kullaniciPaneli_BasimYili_maskedTextBox.Text);
-            KullaniciPaneli_KitapTalepEt_dataGridView.DataSource = insan.kitapSorgula();
-
-        }
-
-        private void yeniKitapTalebiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panelCagir(KullaniciPaneli_KitapEkle, kullaniciPanel_Liste);
-
-        }
-
-        private void bilgilerimToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panelCagir(KullaniciPaneli_Bilglerim_Paneli, kullaniciPanel_Liste);
-        }
-
-        private void Kullanici_Paneli_BilgilerimiGöster_butonu_Click(object sender, EventArgs e)
-        {
-            
-
+        /*--------------------------------Kitap Ekle----------------------*/
 
         /*-------------------------------görevli_Panel--------------------*/
     }
