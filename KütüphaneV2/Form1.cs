@@ -350,6 +350,11 @@ namespace KütüphaneV2
             gorevli_YeniKitap_dataGridView.DataSource = insan.kitapSorgula();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
 
 
 
