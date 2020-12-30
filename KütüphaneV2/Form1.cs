@@ -32,6 +32,41 @@ namespace KütüphaneV2
 
         }
 
+        private void dgwFiltrele(RadioButton radioButton, DataGridView dataGridView, string sutunAdi, string deger)     //parametre olarak radiobutton.checked durumunu ilgili datagridview içinde sütunAdı ve deger ile kontrol ederek filtreler
+        {
+            switch (radioButton.Checked)
+            {
+                case true:
+                    foreach (DataGridViewRow dataGridViewRow in dataGridView.Rows)
+                    {
+                        if (dataGridViewRow.Cells[sutunAdi].Value.ToString()==deger)
+                        {
+                            dataGridViewRow.Visible = true;
+                        }
+                        else
+                        {
+                            dataGridViewRow.DataGridView.CurrentCell = null;
+                            dataGridViewRow.Visible = false;
+                        }
+                    }
+                    break;
+                case false:
+                    foreach (DataGridViewRow dataGridViewRow in gorevli_Talepler_dataGridView.Rows)
+                    {
+                        if (dataGridViewRow.Cells[sutunAdi].Value.ToString()==deger)
+                        {
+                            dataGridViewRow.DataGridView.CurrentCell = null;
+                            dataGridViewRow.Visible = false;
+                        }
+                        else
+                        {
+                            dataGridViewRow.Visible = true;
+                        }
+                    }
+                    break;
+            }
+        }
+
         public KIS()
         {
             InitializeComponent();
@@ -44,11 +79,13 @@ namespace KütüphaneV2
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             panel_Liste.Add(ana_Panel);
             panel_Liste.Add(kullanici_Panel);
+            kullanici_Panel.BackColor=Color.White;;
             panel_Liste.Add(gorevli_Panel);
+            gorevli_Panel.BackColor = Color.White; ;
             panelCagir(ana_Panel, panel_Liste);
 
             /*-------------------------------ana_Panel------------------------*/
-            /*------------------------GİRİŞ---------------------------*/
+            /*------------------------Giriş---------------------------*/
             anaPanel_Liste.Add(ana_Giris_Panel);
             ana_PictureBox.ImageLocation = "icon.png";
             ana_KisLabel1.Text = "Kütüphane İşletim Sistemi";
@@ -63,7 +100,7 @@ namespace KütüphaneV2
             ana_girisYeniKayit_Label.Cursor = Cursors.Hand;
             ana_girisGiris_Button.Text = "Giriş";
             ana_girisGiris_Button.Cursor = Cursors.Hand;
-            /*------------------------GİRİŞ---------------------------*/
+            /*------------------------Giriş---------------------------*/
             /*------------------------ŞifremiUnuttum------------------*/
             anaPanel_Liste.Add(ana_SifremiUnuttum_Panel);
             ana_SifremiUnuttum_Panel.BorderStyle = BorderStyle.FixedSingle;
@@ -93,21 +130,46 @@ namespace KütüphaneV2
 
             /*-------------------------------kullanıcı_Panel------------------*/
             //kodları buraya yazın
-            /*-------------------------------yeniKitap------------------------*/
+            /*------------------------YeniKitap-----------------------*/
             kullaniciPanelListe.Add(kullanici_YeniKitap_Panel);
-            /*-------------------------------yeniKitap------------------------*/
+            kullanici_YeniKitap_Panel.BorderStyle = BorderStyle.FixedSingle;
+            kullanici_YeniKitap_Panel.BackColor = Color.White;
+            /*------------------------YeniKitap-----------------------*/
+            /*------------------------Talepler------------------------*/
+            kullaniciPanelListe.Add(kullanici_Talepler_Panel);
+            kullanici_Talepler_Panel.BorderStyle = BorderStyle.FixedSingle;
+            kullanici_Talepler_Panel.BackColor = Color.White;
+            kullanici_Talepler_Hepsi_radioButton.Text = "Hepsi";
+            kullanici_Talepler_Yeni_radioButton.Text = "Yeni Kitap";
+            kullanici_Talepler_Kira_radioButton.Text = "Kiralama";
+            kullanici_Talepler_Onaylandi_radioButton.Text = "Onaylandı";
+            kullanici_Talepler_Onaylanmadi_radioButton.Text = "Onaylanmadı";
+            /*------------------------Talepler------------------------*/
             /*-------------------------------kullanıcı_Panel------------------*/
 
             /*-------------------------------görevli_Panel--------------------*/
             //kodları buraya yazın
-            /*-------------------------------yeniKitap------------------------*/
+            /*------------------------YeniKitap-----------------------*/
             gorevliPanel_Liste.Add(gorevli_YeniKitap_Panel);
-            /*-------------------------------yeniKitap------------------------*/
+            gorevli_YeniKitap_Panel.BorderStyle = BorderStyle.FixedSingle;
+            gorevli_YeniKitap_Panel.BackColor = Color.White;
+            /*------------------------YeniKitap-----------------------*/
+            /*------------------------Talepler------------------------*/
+            gorevliPanel_Liste.Add(gorevli_Talepler_Panel);
+            gorevli_Talepler_Panel.BorderStyle = BorderStyle.FixedSingle;
+            gorevli_Talepler_Panel.BackColor = Color.White;
+            gorevli_Talepler_Hepsi_radioButton.Text = "Hepsi";
+            gorevli_Talepler_Yeni_radioButton.Text = "Yeni Kitap";
+            gorevli_Talepler_Kira_radioButton.Text = "Kiralama";
+            gorevli_Talepler_Onaylandi_radioButton.Text = "Onaylandı";
+            gorevli_Talepler_Onaylanmadi_radioButton.Text = "Onaylanmadı";
+            gorevli_Talepler_Button.Text = "Onayla";
+            /*------------------------Talepler------------------------*/
             /*-------------------------------görevli_Panel--------------------*/
         }
 
         /*-------------------------------ana_Panel------------------------*/
-        /*------------------------GİRİŞ---------------------------*/
+        /*------------------------Giriş---------------------------*/
 
         private void ana_girisSifremiunuttum_Label_MouseEnter(object sender, EventArgs e)                               //mouse label üstündeyken yazının altını çizer
         {
@@ -145,11 +207,14 @@ namespace KütüphaneV2
 
         private void ana_girisSifre_checkBox_MouseClick(object sender, MouseEventArgs e)                                //tik atıldığında şifreyi gösterir, tik * olarak gösterir
         {
+            switch (ana_girisSifre_checkBox.Checked)
             {
-                if (ana_girisSifre_checkBox.Checked)
+                case true:
                     ana_girisSifre_textBox.PasswordChar = '\0';
-                else
+                    break;
+                case false:
                     ana_girisSifre_textBox.PasswordChar = '*';
+                    break;
             }
         }
 
@@ -207,7 +272,7 @@ namespace KütüphaneV2
                 MessageBox.Show("Tc numarası geçersizdir!");
         }
 
-        /*------------------------GİRİŞ---------------------------*/
+        /*------------------------Giriş---------------------------*/
         /*------------------------ŞifremiUnuttum------------------*/
 
         private void ana_suKapat_Button_Click(object sender, EventArgs e)                                                   //şifremi unuttum panelindeki textbox içlerini boşaltır ve giriş paneli ekrana getirir
@@ -304,6 +369,7 @@ namespace KütüphaneV2
 
         /*------------------------YeniKayıt-----------------------*/
         /*-------------------------------ana_Panel------------------------*/
+
         /*-------------------------------kullanıcı_Panel------------------*/
 
         private void kullanici_MenuCikis_Click(object sender, EventArgs e)      //çıkış yapar ,giriş panelini getirir, insan nesnesini insan kurucu metoduyla yeniden oluşturur(içi boş olur)
@@ -313,7 +379,8 @@ namespace KütüphaneV2
             insan = new Insan();
         }
 
-        /*--------------------------------Kitap Ekle----------------------*/
+        /*------------------------YeniKitap-----------------------*/
+
         private void kullanici_yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelCagir(kullanici_YeniKitap_Panel, kullaniciPanelListe);
@@ -325,7 +392,44 @@ namespace KütüphaneV2
             insan.kitapEkle(kullanici_YeniKitap_kitapadi_textBox.Text, kullanici_YeniKitap_yazar_textBox.Text, kullanici_YeniKitap_basimyili_maskedTextBox.Text);
             kullanici_YeniKitap_dataGridView.DataSource = insan.talepSorgula();
         }
-        /*--------------------------------Kitap Ekle----------------------*/
+
+        /*------------------------YeniKitap-----------------------*/
+        /*------------------------Talepler------------------------*/
+
+        private void kullanici_taleplerToolStripMenuItem_Click(object sender, EventArgs e)      //talepler panelini açan menü tuşu, radiobutton ve datagridviewi günceller
+        {
+            panelCagir(kullanici_Talepler_Panel,kullaniciPanelListe);
+            kullanici_Talepler_Hepsi_radioButton.Checked = true;
+            kullanici_Talepler_dataGridView.DataSource = insan.talepSorgula();
+        }
+
+        private void kullanici_Talepler_Hepsi_radioButton_CheckedChanged(object sender, EventArgs e)    //radiobutton seçilirse datagridviewi filtresiz günceller
+        {
+            foreach (DataGridViewRow dataGridViewRow in kullanici_Talepler_dataGridView.Rows)
+                dataGridViewRow.Visible = true;
+        }
+
+        private void kullanici_Talepler_Yeni_radioButton_CheckedChanged(object sender, EventArgs e)     //seçilen radiobuttona göre datagridview günceller
+        {
+            dgwFiltrele(kullanici_Talepler_Yeni_radioButton,kullanici_Talepler_dataGridView,"İşlem","Yeni");
+        }
+
+        private void kullanici_Talepler_Kira_radioButton_CheckedChanged(object sender, EventArgs e)     //seçilen radiobuttona göre datagridview günceller
+        {
+            dgwFiltrele(kullanici_Talepler_Kira_radioButton, kullanici_Talepler_dataGridView, "İşlem", "Kira");
+        }
+
+        private void kullanici_Talepler_Onaylandi_radioButton_CheckedChanged(object sender, EventArgs e)    //seçilen radiobuttona göre datagridview günceller
+        {
+            dgwFiltrele(kullanici_Talepler_Onaylandi_radioButton, kullanici_Talepler_dataGridView, "Durum", "Onaylandı");
+        }
+
+        private void kullanici_Talepler_Onaylanmadi_radioButton_CheckedChanged(object sender, EventArgs e)      //seçilen radiobuttona göre datagridview günceller
+        {
+            dgwFiltrele(kullanici_Talepler_Onaylanmadi_radioButton, kullanici_Talepler_dataGridView, "Durum", "Onaylanmadı");
+        }
+
+        /*------------------------Talepler------------------------*/
 
         /*-------------------------------kullanıcı_Panel------------------*/
         /*-------------------------------görevli_Panel--------------------*/
@@ -337,7 +441,8 @@ namespace KütüphaneV2
             insan = new Insan();
         }
 
-        /*--------------------------------Kitap Ekle----------------------*/
+        /*------------------------YeniKitap-----------------------*/
+
         private void gorevli_yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelCagir(gorevli_YeniKitap_Panel, gorevliPanel_Liste);
@@ -350,6 +455,8 @@ namespace KütüphaneV2
             gorevli_YeniKitap_dataGridView.DataSource = insan.kitapSorgula();
         }
 
+        /*------------------------YeniKitap-----------------------*/
+        /*------------------------Talepler------------------------*/
         private void bilgilerimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelCagir(Kullanici_Bilgilerim_Panel, kullaniciPanelListe);
@@ -377,13 +484,60 @@ namespace KütüphaneV2
         }
 
 
+        private void gorevli_taleplerToolStripMenuItem_Click(object sender, EventArgs e)        //talepler panelini açan menü tuşu, radiobutton ve datagridviewi günceller
+        {
+            panelCagir(gorevli_Talepler_Panel, gorevliPanel_Liste);
+            gorevli_Talepler_Hepsi_radioButton.Checked = true;
+            gorevli_Talepler_dataGridView.DataSource = insan.talepSorgula();
+        }
 
+        private void gorevli_Talepler_Hepsi_radioButton_CheckedChanged(object sender, EventArgs e)      //radiobutton seçilirse datagridviewi filtresiz günceller
+        {
+            foreach (DataGridViewRow dataGridViewRow in gorevli_Talepler_dataGridView.Rows)
+                dataGridViewRow.Visible = true;
+        }
 
+        private void gorevli_Talepler_Yeni_radioButton_CheckedChanged(object sender, EventArgs e)       //seçilen radiobuttona göre datagridview günceller
+        {
+            dgwFiltrele(gorevli_Talepler_Yeni_radioButton, gorevli_Talepler_dataGridView, "İşlem", "Yeni");
+        }
 
+        private void gorevli_Talepler_Kira_radioButton_CheckedChanged(object sender, EventArgs e)       //seçilen radiobuttona göre datagridview günceller
+        {
+            dgwFiltrele(gorevli_Talepler_Kira_radioButton, gorevli_Talepler_dataGridView, "İşlem", "Kira");
+        }
 
+        private void gorevli_Talepler_Onaylandi_radioButton_CheckedChanged(object sender, EventArgs e)      //seçilen radiobuttona göre datagridview günceller
+        {
+            dgwFiltrele(gorevli_Talepler_Onaylandi_radioButton, gorevli_Talepler_dataGridView, "Durum", "Onaylandı");
+        }
 
-        /*--------------------------------Kitap Ekle----------------------*/
+        private void gorevli_Talepler_Onaylanmadi_radioButton_CheckedChanged(object sender, EventArgs e)        //seçilen radiobuttona göre datagridview günceller
+        {
+            dgwFiltrele(gorevli_Talepler_Onaylanmadi_radioButton, gorevli_Talepler_dataGridView, "Durum", "Onaylanmadı");
+        }
 
+        private void gorevli_Talepler_Button_Click(object sender, EventArgs e)      //datagridview de seçilen hücreye göre işlem yapar
+        {
+            int i = gorevli_Talepler_dataGridView.SelectedRows.Count;
+            if (i>0)
+            {
+                switch (gorevli_Talepler_dataGridView.Rows[i].Cells["İşlem"].Value.ToString())
+                {
+                    case "Yeni":
+                        insan.kitapEkle(int.Parse(gorevli_Talepler_dataGridView.Rows[i].Cells["ID"].Value.ToString()));
+                        MessageBox.Show("Yeni Kitap Ekleme Talebi Onyalandı!");
+                        break;
+                    case "Kira":
+                        insan.kitapKirala(int.Parse(gorevli_Talepler_dataGridView.Rows[i].Cells["ID"].Value.ToString()));
+                        MessageBox.Show("Kiralama Talebi Onyalandı!");
+                        break;
+                } 
+            }
+            gorevli_taleplerToolStripMenuItem_Click(sender,e);
+        }
+
+        /*------------------------Talepler------------------------*/
         /*-------------------------------görevli_Panel--------------------*/
     }
 }
