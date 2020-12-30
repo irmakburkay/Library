@@ -350,9 +350,30 @@ namespace KütüphaneV2
             gorevli_YeniKitap_dataGridView.DataSource = insan.kitapSorgula();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void bilgilerimToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            panelCagir(Kullanici_Bilgilerim_Panel, kullaniciPanelListe);
 
+            kullaniciPanelListe.Add(Kullanici_Bilgilerim_Panel); 
+            bilgilerimToolStripMenuItem.Text = insan.isim + insan.soyisim;                                     /*kullanıcı panelinde bilgilerim tuşu uzerine geldiğinde isim-soyisim gözükür*/
+
+        }
+
+        private void gorevli_bilgilerimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCagir(gorevli_Bilgilerim_Panel, gorevliPanel_Liste);
+            gorevliPanel_Liste.Add(gorevli_Bilgilerim_Panel);
+            gorevli_bilgilerimToolStripMenuItem.Text = insan.isim + insan.soyisim + insan;                    /*gorevli panelinde bilgilerim tuşu uzerine geldiğinde isim-soyisim gözükür*/
+        }
+
+        private void gorevli_BilgilerimiGuncelle_Button_Click(object sender, EventArgs e)
+        {
+            insan.bilgiAl(insan.tc);
+            gorevli_Ad_TextBox.Text = insan.isim;
+            gorevli_Soyad_TextBox.Text = insan.soyisim;
+            gorevli_Sifre_TextBox.Text = insan.sifre;
+            gorevli_TcNo_TextBox.Text = insan.tc;
+            gorevli_GuvenlikKelimesi_TextBox.Text = insan.guvenlikKelimesi;
         }
 
 

@@ -62,6 +62,18 @@ namespace KütüphaneV2
             this.ana_KisLabel1 = new System.Windows.Forms.Label();
             this.ana_PictureBox = new System.Windows.Forms.PictureBox();
             this.kullanici_Panel = new System.Windows.Forms.Panel();
+            this.Kullanici_Bilgilerim_Panel = new System.Windows.Forms.Panel();
+            this.kullanici_GuvenlikKelimesi_label = new System.Windows.Forms.Label();
+            this.kullanici_TcNo_label = new System.Windows.Forms.Label();
+            this.kullanici_GuvenlikKelimesi_TextBox = new System.Windows.Forms.TextBox();
+            this.kullanici_TcNo_TextBox = new System.Windows.Forms.TextBox();
+            this.Kullanici_BilgilerimiGuncelle_Button = new System.Windows.Forms.Button();
+            this.Kullanici_Soyad_TextBox = new System.Windows.Forms.TextBox();
+            this.Kullanici_Sifre_TextBox = new System.Windows.Forms.TextBox();
+            this.Kullanici_Ad_TextBox = new System.Windows.Forms.TextBox();
+            this.Kullanici_Soyad_label = new System.Windows.Forms.Label();
+            this.Kullanici_Sifre_label = new System.Windows.Forms.Label();
+            this.Kullanici_Ad_label = new System.Windows.Forms.Label();
             this.kullanici_YeniKitap_Panel = new System.Windows.Forms.Panel();
             this.kullanici_YeniKitap_dataGridView = new System.Windows.Forms.DataGridView();
             this.kullanici_YeniKitap_basimyili_maskedTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -72,9 +84,22 @@ namespace KütüphaneV2
             this.kullanici_YeniKitap_kitapadi_textBox = new System.Windows.Forms.TextBox();
             this.kullanici_YeniKitap_button = new System.Windows.Forms.Button();
             this.kullanici_Menu = new System.Windows.Forms.MenuStrip();
+            this.bilgilerimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kullanici_MenuCikis = new System.Windows.Forms.ToolStripMenuItem();
             this.kullanici_yeniKitapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gorevli_Panel = new System.Windows.Forms.Panel();
+            this.gorevli_Bilgilerim_Panel = new System.Windows.Forms.Panel();
+            this.gorevli_GuvenlikKelimesi_label = new System.Windows.Forms.Label();
+            this.gorevli_TcNo_label = new System.Windows.Forms.Label();
+            this.gorevli_GuvenlikKelimesi_TextBox = new System.Windows.Forms.TextBox();
+            this.gorevli_TcNo_TextBox = new System.Windows.Forms.TextBox();
+            this.gorevli_BilgilerimiGuncelle_Button = new System.Windows.Forms.Button();
+            this.gorevli_Soyad_TextBox = new System.Windows.Forms.TextBox();
+            this.gorevli_Sifre_TextBox = new System.Windows.Forms.TextBox();
+            this.gorevli_Ad_TextBox = new System.Windows.Forms.TextBox();
+            this.gorevli_Sifre_Label = new System.Windows.Forms.Label();
+            this.gorevli_Soyad_Label = new System.Windows.Forms.Label();
+            this.gorevli_Ad_Label = new System.Windows.Forms.Label();
             this.gorevli_YeniKitap_Panel = new System.Windows.Forms.Panel();
             this.gorevli_YeniKitap_dataGridView = new System.Windows.Forms.DataGridView();
             this.gorevli_YeniKitap_basimyili_maskedTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -85,41 +110,24 @@ namespace KütüphaneV2
             this.gorevli_YeniKitap_kitapadi_textBox = new System.Windows.Forms.TextBox();
             this.gorevli_YeniKitap_button = new System.Windows.Forms.Button();
             this.gorevli_Menu = new System.Windows.Forms.MenuStrip();
+            this.gorevli_bilgilerimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gorevli_yeniKitapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gorevli_MenuCikis = new System.Windows.Forms.ToolStripMenuItem();
-            this.Kullanici_Bilgilerim_Panel = new System.Windows.Forms.Panel();
-            this.Kullanici_Ad_label = new System.Windows.Forms.Label();
-            this.Kullanici_Sifre_label = new System.Windows.Forms.Label();
-            this.Kullanici_Soyad_label = new System.Windows.Forms.Label();
-            this.Kullanici_Ad_TextBox = new System.Windows.Forms.TextBox();
-            this.Kullanici_Soyad_TextBox = new System.Windows.Forms.TextBox();
-            this.Kullanici_BilgilerimiGuncelle_Button = new System.Windows.Forms.Button();
-            this.Kullanici_Sifre_TextBox = new System.Windows.Forms.TextBox();
-            this.bilgilerimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gorevli_Bilgilerim_Panel = new System.Windows.Forms.Panel();
-            this.bilgilerimToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.gorevli_Ad_Label = new System.Windows.Forms.Label();
-            this.gorevli_Soyad_Label = new System.Windows.Forms.Label();
-            this.gorevli_Sifre_Label = new System.Windows.Forms.Label();
-            this.gorevli_Ad_TextBox = new System.Windows.Forms.TextBox();
-            this.gorevli_Sifre_TextBox = new System.Windows.Forms.TextBox();
-            this.gorevli_Soyad_TextBox = new System.Windows.Forms.TextBox();
-            this.gorevli_BilgilerimiGuncelle_Button = new System.Windows.Forms.Button();
             this.ana_Panel.SuspendLayout();
             this.ana_Giris_Panel.SuspendLayout();
             this.ana_SifremiUnuttum_Panel.SuspendLayout();
             this.ana_YeniKayit_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ana_PictureBox)).BeginInit();
             this.kullanici_Panel.SuspendLayout();
+            this.Kullanici_Bilgilerim_Panel.SuspendLayout();
             this.kullanici_YeniKitap_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kullanici_YeniKitap_dataGridView)).BeginInit();
             this.kullanici_Menu.SuspendLayout();
             this.gorevli_Panel.SuspendLayout();
+            this.gorevli_Bilgilerim_Panel.SuspendLayout();
             this.gorevli_YeniKitap_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gorevli_YeniKitap_dataGridView)).BeginInit();
             this.gorevli_Menu.SuspendLayout();
-            this.Kullanici_Bilgilerim_Panel.SuspendLayout();
-            this.gorevli_Bilgilerim_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ana_Panel
@@ -492,6 +500,113 @@ namespace KütüphaneV2
             this.kullanici_Panel.TabIndex = 1;
             this.kullanici_Panel.Visible = false;
             // 
+            // Kullanici_Bilgilerim_Panel
+            // 
+            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.kullanici_GuvenlikKelimesi_label);
+            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.kullanici_TcNo_label);
+            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.kullanici_GuvenlikKelimesi_TextBox);
+            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.kullanici_TcNo_TextBox);
+            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_BilgilerimiGuncelle_Button);
+            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Soyad_TextBox);
+            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Sifre_TextBox);
+            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Ad_TextBox);
+            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Soyad_label);
+            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Sifre_label);
+            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Ad_label);
+            this.Kullanici_Bilgilerim_Panel.Location = new System.Drawing.Point(0, 30);
+            this.Kullanici_Bilgilerim_Panel.Name = "Kullanici_Bilgilerim_Panel";
+            this.Kullanici_Bilgilerim_Panel.Size = new System.Drawing.Size(993, 536);
+            this.Kullanici_Bilgilerim_Panel.TabIndex = 50;
+            // 
+            // kullanici_GuvenlikKelimesi_label
+            // 
+            this.kullanici_GuvenlikKelimesi_label.AutoSize = true;
+            this.kullanici_GuvenlikKelimesi_label.Location = new System.Drawing.Point(53, 232);
+            this.kullanici_GuvenlikKelimesi_label.Name = "kullanici_GuvenlikKelimesi_label";
+            this.kullanici_GuvenlikKelimesi_label.Size = new System.Drawing.Size(165, 22);
+            this.kullanici_GuvenlikKelimesi_label.TabIndex = 10;
+            this.kullanici_GuvenlikKelimesi_label.Text = "Guvenlik Kelimesi:";
+            // 
+            // kullanici_TcNo_label
+            // 
+            this.kullanici_TcNo_label.AutoSize = true;
+            this.kullanici_TcNo_label.Location = new System.Drawing.Point(152, 180);
+            this.kullanici_TcNo_label.Name = "kullanici_TcNo_label";
+            this.kullanici_TcNo_label.Size = new System.Drawing.Size(65, 22);
+            this.kullanici_TcNo_label.TabIndex = 9;
+            this.kullanici_TcNo_label.Text = "Tc No:";
+            // 
+            // kullanici_GuvenlikKelimesi_TextBox
+            // 
+            this.kullanici_GuvenlikKelimesi_TextBox.Location = new System.Drawing.Point(219, 229);
+            this.kullanici_GuvenlikKelimesi_TextBox.Name = "kullanici_GuvenlikKelimesi_TextBox";
+            this.kullanici_GuvenlikKelimesi_TextBox.Size = new System.Drawing.Size(111, 30);
+            this.kullanici_GuvenlikKelimesi_TextBox.TabIndex = 8;
+            // 
+            // kullanici_TcNo_TextBox
+            // 
+            this.kullanici_TcNo_TextBox.Location = new System.Drawing.Point(219, 177);
+            this.kullanici_TcNo_TextBox.Name = "kullanici_TcNo_TextBox";
+            this.kullanici_TcNo_TextBox.Size = new System.Drawing.Size(111, 30);
+            this.kullanici_TcNo_TextBox.TabIndex = 7;
+            // 
+            // Kullanici_BilgilerimiGuncelle_Button
+            // 
+            this.Kullanici_BilgilerimiGuncelle_Button.Location = new System.Drawing.Point(147, 279);
+            this.Kullanici_BilgilerimiGuncelle_Button.Name = "Kullanici_BilgilerimiGuncelle_Button";
+            this.Kullanici_BilgilerimiGuncelle_Button.Size = new System.Drawing.Size(183, 33);
+            this.Kullanici_BilgilerimiGuncelle_Button.TabIndex = 6;
+            this.Kullanici_BilgilerimiGuncelle_Button.Text = "Bilgilerimi Guncelle";
+            this.Kullanici_BilgilerimiGuncelle_Button.UseVisualStyleBackColor = true;
+            // 
+            // Kullanici_Soyad_TextBox
+            // 
+            this.Kullanici_Soyad_TextBox.Location = new System.Drawing.Point(219, 94);
+            this.Kullanici_Soyad_TextBox.Name = "Kullanici_Soyad_TextBox";
+            this.Kullanici_Soyad_TextBox.Size = new System.Drawing.Size(111, 30);
+            this.Kullanici_Soyad_TextBox.TabIndex = 5;
+            // 
+            // Kullanici_Sifre_TextBox
+            // 
+            this.Kullanici_Sifre_TextBox.Location = new System.Drawing.Point(219, 138);
+            this.Kullanici_Sifre_TextBox.Name = "Kullanici_Sifre_TextBox";
+            this.Kullanici_Sifre_TextBox.Size = new System.Drawing.Size(111, 30);
+            this.Kullanici_Sifre_TextBox.TabIndex = 4;
+            // 
+            // Kullanici_Ad_TextBox
+            // 
+            this.Kullanici_Ad_TextBox.Location = new System.Drawing.Point(219, 51);
+            this.Kullanici_Ad_TextBox.Name = "Kullanici_Ad_TextBox";
+            this.Kullanici_Ad_TextBox.Size = new System.Drawing.Size(111, 30);
+            this.Kullanici_Ad_TextBox.TabIndex = 3;
+            // 
+            // Kullanici_Soyad_label
+            // 
+            this.Kullanici_Soyad_label.AutoSize = true;
+            this.Kullanici_Soyad_label.Location = new System.Drawing.Point(149, 97);
+            this.Kullanici_Soyad_label.Name = "Kullanici_Soyad_label";
+            this.Kullanici_Soyad_label.Size = new System.Drawing.Size(65, 22);
+            this.Kullanici_Soyad_label.TabIndex = 2;
+            this.Kullanici_Soyad_label.Text = "Soyad:";
+            // 
+            // Kullanici_Sifre_label
+            // 
+            this.Kullanici_Sifre_label.AutoSize = true;
+            this.Kullanici_Sifre_label.Location = new System.Drawing.Point(158, 141);
+            this.Kullanici_Sifre_label.Name = "Kullanici_Sifre_label";
+            this.Kullanici_Sifre_label.Size = new System.Drawing.Size(55, 22);
+            this.Kullanici_Sifre_label.TabIndex = 1;
+            this.Kullanici_Sifre_label.Text = "Sifre:";
+            // 
+            // Kullanici_Ad_label
+            // 
+            this.Kullanici_Ad_label.AutoSize = true;
+            this.Kullanici_Ad_label.Location = new System.Drawing.Point(173, 54);
+            this.Kullanici_Ad_label.Name = "Kullanici_Ad_label";
+            this.Kullanici_Ad_label.Size = new System.Drawing.Size(40, 22);
+            this.Kullanici_Ad_label.TabIndex = 0;
+            this.Kullanici_Ad_label.Text = "Ad:";
+            // 
             // kullanici_YeniKitap_Panel
             // 
             this.kullanici_YeniKitap_Panel.Controls.Add(this.kullanici_YeniKitap_dataGridView);
@@ -595,6 +710,13 @@ namespace KütüphaneV2
             this.kullanici_Menu.TabIndex = 0;
             this.kullanici_Menu.Text = "menuStrip2";
             // 
+            // bilgilerimToolStripMenuItem
+            // 
+            this.bilgilerimToolStripMenuItem.Name = "bilgilerimToolStripMenuItem";
+            this.bilgilerimToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.bilgilerimToolStripMenuItem.Text = "Bilgilerim";
+            this.bilgilerimToolStripMenuItem.Click += new System.EventHandler(this.bilgilerimToolStripMenuItem_Click);
+            // 
             // kullanici_MenuCikis
             // 
             this.kullanici_MenuCikis.Font = new System.Drawing.Font("Times New Roman", 10F);
@@ -623,6 +745,114 @@ namespace KütüphaneV2
             this.gorevli_Panel.Size = new System.Drawing.Size(993, 566);
             this.gorevli_Panel.TabIndex = 2;
             this.gorevli_Panel.Visible = false;
+            // 
+            // gorevli_Bilgilerim_Panel
+            // 
+            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_GuvenlikKelimesi_label);
+            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_TcNo_label);
+            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_GuvenlikKelimesi_TextBox);
+            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_TcNo_TextBox);
+            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_BilgilerimiGuncelle_Button);
+            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Soyad_TextBox);
+            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Sifre_TextBox);
+            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Ad_TextBox);
+            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Sifre_Label);
+            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Soyad_Label);
+            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Ad_Label);
+            this.gorevli_Bilgilerim_Panel.Location = new System.Drawing.Point(3, 27);
+            this.gorevli_Bilgilerim_Panel.Name = "gorevli_Bilgilerim_Panel";
+            this.gorevli_Bilgilerim_Panel.Size = new System.Drawing.Size(987, 536);
+            this.gorevli_Bilgilerim_Panel.TabIndex = 42;
+            // 
+            // gorevli_GuvenlikKelimesi_label
+            // 
+            this.gorevli_GuvenlikKelimesi_label.AutoSize = true;
+            this.gorevli_GuvenlikKelimesi_label.Location = new System.Drawing.Point(50, 210);
+            this.gorevli_GuvenlikKelimesi_label.Name = "gorevli_GuvenlikKelimesi_label";
+            this.gorevli_GuvenlikKelimesi_label.Size = new System.Drawing.Size(160, 22);
+            this.gorevli_GuvenlikKelimesi_label.TabIndex = 10;
+            this.gorevli_GuvenlikKelimesi_label.Text = "Guvenlik kelimesi:";
+            // 
+            // gorevli_TcNo_label
+            // 
+            this.gorevli_TcNo_label.AutoSize = true;
+            this.gorevli_TcNo_label.Location = new System.Drawing.Point(133, 161);
+            this.gorevli_TcNo_label.Name = "gorevli_TcNo_label";
+            this.gorevli_TcNo_label.Size = new System.Drawing.Size(79, 22);
+            this.gorevli_TcNo_label.TabIndex = 9;
+            this.gorevli_TcNo_label.Text = "T.C. No:";
+            // 
+            // gorevli_GuvenlikKelimesi_TextBox
+            // 
+            this.gorevli_GuvenlikKelimesi_TextBox.Location = new System.Drawing.Point(225, 207);
+            this.gorevli_GuvenlikKelimesi_TextBox.Name = "gorevli_GuvenlikKelimesi_TextBox";
+            this.gorevli_GuvenlikKelimesi_TextBox.Size = new System.Drawing.Size(129, 30);
+            this.gorevli_GuvenlikKelimesi_TextBox.TabIndex = 8;
+            // 
+            // gorevli_TcNo_TextBox
+            // 
+            this.gorevli_TcNo_TextBox.Location = new System.Drawing.Point(225, 158);
+            this.gorevli_TcNo_TextBox.Name = "gorevli_TcNo_TextBox";
+            this.gorevli_TcNo_TextBox.Size = new System.Drawing.Size(129, 30);
+            this.gorevli_TcNo_TextBox.TabIndex = 7;
+            // 
+            // gorevli_BilgilerimiGuncelle_Button
+            // 
+            this.gorevli_BilgilerimiGuncelle_Button.Location = new System.Drawing.Point(153, 252);
+            this.gorevli_BilgilerimiGuncelle_Button.Name = "gorevli_BilgilerimiGuncelle_Button";
+            this.gorevli_BilgilerimiGuncelle_Button.Size = new System.Drawing.Size(201, 44);
+            this.gorevli_BilgilerimiGuncelle_Button.TabIndex = 6;
+            this.gorevli_BilgilerimiGuncelle_Button.Text = "Bilgilerimi Guncelle";
+            this.gorevli_BilgilerimiGuncelle_Button.UseVisualStyleBackColor = true;
+            this.gorevli_BilgilerimiGuncelle_Button.Click += new System.EventHandler(this.gorevli_BilgilerimiGuncelle_Button_Click);
+            // 
+            // gorevli_Soyad_TextBox
+            // 
+            this.gorevli_Soyad_TextBox.Location = new System.Drawing.Point(225, 64);
+            this.gorevli_Soyad_TextBox.Name = "gorevli_Soyad_TextBox";
+            this.gorevli_Soyad_TextBox.Size = new System.Drawing.Size(129, 30);
+            this.gorevli_Soyad_TextBox.TabIndex = 5;
+            // 
+            // gorevli_Sifre_TextBox
+            // 
+            this.gorevli_Sifre_TextBox.Location = new System.Drawing.Point(225, 108);
+            this.gorevli_Sifre_TextBox.Name = "gorevli_Sifre_TextBox";
+            this.gorevli_Sifre_TextBox.Size = new System.Drawing.Size(129, 30);
+            this.gorevli_Sifre_TextBox.TabIndex = 4;
+            // 
+            // gorevli_Ad_TextBox
+            // 
+            this.gorevli_Ad_TextBox.Location = new System.Drawing.Point(225, 23);
+            this.gorevli_Ad_TextBox.Name = "gorevli_Ad_TextBox";
+            this.gorevli_Ad_TextBox.Size = new System.Drawing.Size(129, 30);
+            this.gorevli_Ad_TextBox.TabIndex = 3;
+            // 
+            // gorevli_Sifre_Label
+            // 
+            this.gorevli_Sifre_Label.AutoSize = true;
+            this.gorevli_Sifre_Label.Location = new System.Drawing.Point(157, 108);
+            this.gorevli_Sifre_Label.Name = "gorevli_Sifre_Label";
+            this.gorevli_Sifre_Label.Size = new System.Drawing.Size(55, 22);
+            this.gorevli_Sifre_Label.TabIndex = 2;
+            this.gorevli_Sifre_Label.Text = "Sifre:";
+            // 
+            // gorevli_Soyad_Label
+            // 
+            this.gorevli_Soyad_Label.AutoSize = true;
+            this.gorevli_Soyad_Label.Location = new System.Drawing.Point(145, 67);
+            this.gorevli_Soyad_Label.Name = "gorevli_Soyad_Label";
+            this.gorevli_Soyad_Label.Size = new System.Drawing.Size(65, 22);
+            this.gorevli_Soyad_Label.TabIndex = 1;
+            this.gorevli_Soyad_Label.Text = "Soyad:";
+            // 
+            // gorevli_Ad_Label
+            // 
+            this.gorevli_Ad_Label.AutoSize = true;
+            this.gorevli_Ad_Label.Location = new System.Drawing.Point(170, 31);
+            this.gorevli_Ad_Label.Name = "gorevli_Ad_Label";
+            this.gorevli_Ad_Label.Size = new System.Drawing.Size(40, 22);
+            this.gorevli_Ad_Label.TabIndex = 0;
+            this.gorevli_Ad_Label.Text = "Ad:";
             // 
             // gorevli_YeniKitap_Panel
             // 
@@ -717,7 +947,7 @@ namespace KütüphaneV2
             this.gorevli_Menu.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.gorevli_Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.gorevli_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bilgilerimToolStripMenuItem1,
+            this.gorevli_bilgilerimToolStripMenuItem,
             this.gorevli_yeniKitapToolStripMenuItem,
             this.gorevli_MenuCikis});
             this.gorevli_Menu.Location = new System.Drawing.Point(0, 0);
@@ -726,6 +956,13 @@ namespace KütüphaneV2
             this.gorevli_Menu.Size = new System.Drawing.Size(993, 24);
             this.gorevli_Menu.TabIndex = 0;
             this.gorevli_Menu.Text = "menuStrip1";
+            // 
+            // gorevli_bilgilerimToolStripMenuItem
+            // 
+            this.gorevli_bilgilerimToolStripMenuItem.Name = "gorevli_bilgilerimToolStripMenuItem";
+            this.gorevli_bilgilerimToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.gorevli_bilgilerimToolStripMenuItem.Text = "Bilgilerim";
+            this.gorevli_bilgilerimToolStripMenuItem.Click += new System.EventHandler(this.gorevli_bilgilerimToolStripMenuItem_Click);
             // 
             // gorevli_yeniKitapToolStripMenuItem
             // 
@@ -741,169 +978,14 @@ namespace KütüphaneV2
             this.gorevli_MenuCikis.Text = "Çıkış";
             this.gorevli_MenuCikis.Click += new System.EventHandler(this.gorevli_MenuCikis_Click);
             // 
-            // Kullanici_Bilgilerim_Panel
-            // 
-            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_BilgilerimiGuncelle_Button);
-            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Soyad_TextBox);
-            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Sifre_TextBox);
-            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Ad_TextBox);
-            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Soyad_label);
-            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Sifre_label);
-            this.Kullanici_Bilgilerim_Panel.Controls.Add(this.Kullanici_Ad_label);
-            this.Kullanici_Bilgilerim_Panel.Location = new System.Drawing.Point(0, 30);
-            this.Kullanici_Bilgilerim_Panel.Name = "Kullanici_Bilgilerim_Panel";
-            this.Kullanici_Bilgilerim_Panel.Size = new System.Drawing.Size(993, 536);
-            this.Kullanici_Bilgilerim_Panel.TabIndex = 50;
-            // 
-            // Kullanici_Ad_label
-            // 
-            this.Kullanici_Ad_label.AutoSize = true;
-            this.Kullanici_Ad_label.Location = new System.Drawing.Point(41, 55);
-            this.Kullanici_Ad_label.Name = "Kullanici_Ad_label";
-            this.Kullanici_Ad_label.Size = new System.Drawing.Size(40, 22);
-            this.Kullanici_Ad_label.TabIndex = 0;
-            this.Kullanici_Ad_label.Text = "Ad:";
-            // 
-            // Kullanici_Sifre_label
-            // 
-            this.Kullanici_Sifre_label.AutoSize = true;
-            this.Kullanici_Sifre_label.Location = new System.Drawing.Point(41, 130);
-            this.Kullanici_Sifre_label.Name = "Kullanici_Sifre_label";
-            this.Kullanici_Sifre_label.Size = new System.Drawing.Size(55, 22);
-            this.Kullanici_Sifre_label.TabIndex = 1;
-            this.Kullanici_Sifre_label.Text = "Sifre:";
-            // 
-            // Kullanici_Soyad_label
-            // 
-            this.Kullanici_Soyad_label.AutoSize = true;
-            this.Kullanici_Soyad_label.Location = new System.Drawing.Point(39, 91);
-            this.Kullanici_Soyad_label.Name = "Kullanici_Soyad_label";
-            this.Kullanici_Soyad_label.Size = new System.Drawing.Size(65, 22);
-            this.Kullanici_Soyad_label.TabIndex = 2;
-            this.Kullanici_Soyad_label.Text = "Soyad:";
-            // 
-            // Kullanici_Ad_TextBox
-            // 
-            this.Kullanici_Ad_TextBox.Location = new System.Drawing.Point(115, 52);
-            this.Kullanici_Ad_TextBox.Name = "Kullanici_Ad_TextBox";
-            this.Kullanici_Ad_TextBox.Size = new System.Drawing.Size(111, 30);
-            this.Kullanici_Ad_TextBox.TabIndex = 3;
-            // 
-            // Kullanici_Soyad_TextBox
-            // 
-            this.Kullanici_Soyad_TextBox.Location = new System.Drawing.Point(115, 89);
-            this.Kullanici_Soyad_TextBox.Name = "Kullanici_Soyad_TextBox";
-            this.Kullanici_Soyad_TextBox.Size = new System.Drawing.Size(111, 30);
-            this.Kullanici_Soyad_TextBox.TabIndex = 5;
-            // 
-            // Kullanici_BilgilerimiGuncelle_Button
-            // 
-            this.Kullanici_BilgilerimiGuncelle_Button.Location = new System.Drawing.Point(43, 186);
-            this.Kullanici_BilgilerimiGuncelle_Button.Name = "Kullanici_BilgilerimiGuncelle_Button";
-            this.Kullanici_BilgilerimiGuncelle_Button.Size = new System.Drawing.Size(183, 33);
-            this.Kullanici_BilgilerimiGuncelle_Button.TabIndex = 6;
-            this.Kullanici_BilgilerimiGuncelle_Button.Text = "Bilgilerimi Guncelle";
-            this.Kullanici_BilgilerimiGuncelle_Button.UseVisualStyleBackColor = true;
-            // 
-            // Kullanici_Sifre_TextBox
-            // 
-            this.Kullanici_Sifre_TextBox.Location = new System.Drawing.Point(115, 127);
-            this.Kullanici_Sifre_TextBox.Name = "Kullanici_Sifre_TextBox";
-            this.Kullanici_Sifre_TextBox.Size = new System.Drawing.Size(111, 30);
-            this.Kullanici_Sifre_TextBox.TabIndex = 4;
-            // 
-            // bilgilerimToolStripMenuItem
-            // 
-            this.bilgilerimToolStripMenuItem.Name = "bilgilerimToolStripMenuItem";
-            this.bilgilerimToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.bilgilerimToolStripMenuItem.Text = "Bilgilerim";
-            // 
-            // gorevli_Bilgilerim_Panel
-            // 
-            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_BilgilerimiGuncelle_Button);
-            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Soyad_TextBox);
-            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Sifre_TextBox);
-            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Ad_TextBox);
-            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Sifre_Label);
-            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Soyad_Label);
-            this.gorevli_Bilgilerim_Panel.Controls.Add(this.gorevli_Ad_Label);
-            this.gorevli_Bilgilerim_Panel.Location = new System.Drawing.Point(3, 27);
-            this.gorevli_Bilgilerim_Panel.Name = "gorevli_Bilgilerim_Panel";
-            this.gorevli_Bilgilerim_Panel.Size = new System.Drawing.Size(987, 536);
-            this.gorevli_Bilgilerim_Panel.TabIndex = 42;
-            this.gorevli_Bilgilerim_Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // bilgilerimToolStripMenuItem1
-            // 
-            this.bilgilerimToolStripMenuItem1.Name = "bilgilerimToolStripMenuItem1";
-            this.bilgilerimToolStripMenuItem1.Size = new System.Drawing.Size(72, 20);
-            this.bilgilerimToolStripMenuItem1.Text = "Bilgilerim";
-            // 
-            // gorevli_Ad_Label
-            // 
-            this.gorevli_Ad_Label.AutoSize = true;
-            this.gorevli_Ad_Label.Location = new System.Drawing.Point(59, 31);
-            this.gorevli_Ad_Label.Name = "gorevli_Ad_Label";
-            this.gorevli_Ad_Label.Size = new System.Drawing.Size(40, 22);
-            this.gorevli_Ad_Label.TabIndex = 0;
-            this.gorevli_Ad_Label.Text = "Ad:";
-            // 
-            // gorevli_Soyad_Label
-            // 
-            this.gorevli_Soyad_Label.AutoSize = true;
-            this.gorevli_Soyad_Label.Location = new System.Drawing.Point(59, 72);
-            this.gorevli_Soyad_Label.Name = "gorevli_Soyad_Label";
-            this.gorevli_Soyad_Label.Size = new System.Drawing.Size(65, 22);
-            this.gorevli_Soyad_Label.TabIndex = 1;
-            this.gorevli_Soyad_Label.Text = "Soyad:";
-            // 
-            // gorevli_Sifre_Label
-            // 
-            this.gorevli_Sifre_Label.AutoSize = true;
-            this.gorevli_Sifre_Label.Location = new System.Drawing.Point(59, 113);
-            this.gorevli_Sifre_Label.Name = "gorevli_Sifre_Label";
-            this.gorevli_Sifre_Label.Size = new System.Drawing.Size(55, 22);
-            this.gorevli_Sifre_Label.TabIndex = 2;
-            this.gorevli_Sifre_Label.Text = "Sifre:";
-            // 
-            // gorevli_Ad_TextBox
-            // 
-            this.gorevli_Ad_TextBox.Location = new System.Drawing.Point(133, 28);
-            this.gorevli_Ad_TextBox.Name = "gorevli_Ad_TextBox";
-            this.gorevli_Ad_TextBox.Size = new System.Drawing.Size(129, 30);
-            this.gorevli_Ad_TextBox.TabIndex = 3;
-            // 
-            // gorevli_Sifre_TextBox
-            // 
-            this.gorevli_Sifre_TextBox.Location = new System.Drawing.Point(133, 110);
-            this.gorevli_Sifre_TextBox.Name = "gorevli_Sifre_TextBox";
-            this.gorevli_Sifre_TextBox.Size = new System.Drawing.Size(129, 30);
-            this.gorevli_Sifre_TextBox.TabIndex = 4;
-            // 
-            // gorevli_Soyad_TextBox
-            // 
-            this.gorevli_Soyad_TextBox.Location = new System.Drawing.Point(133, 70);
-            this.gorevli_Soyad_TextBox.Name = "gorevli_Soyad_TextBox";
-            this.gorevli_Soyad_TextBox.Size = new System.Drawing.Size(129, 30);
-            this.gorevli_Soyad_TextBox.TabIndex = 5;
-            // 
-            // gorevli_BilgilerimiGuncelle_Button
-            // 
-            this.gorevli_BilgilerimiGuncelle_Button.Location = new System.Drawing.Point(63, 158);
-            this.gorevli_BilgilerimiGuncelle_Button.Name = "gorevli_BilgilerimiGuncelle_Button";
-            this.gorevli_BilgilerimiGuncelle_Button.Size = new System.Drawing.Size(201, 44);
-            this.gorevli_BilgilerimiGuncelle_Button.TabIndex = 6;
-            this.gorevli_BilgilerimiGuncelle_Button.Text = "Bilgilerimi Guncelle";
-            this.gorevli_BilgilerimiGuncelle_Button.UseVisualStyleBackColor = true;
-            // 
             // KIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(1011, 586);
-            this.Controls.Add(this.gorevli_Panel);
             this.Controls.Add(this.kullanici_Panel);
+            this.Controls.Add(this.gorevli_Panel);
             this.Controls.Add(this.ana_Panel);
             this.MainMenuStrip = this.gorevli_Menu;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -922,6 +1004,8 @@ namespace KütüphaneV2
             ((System.ComponentModel.ISupportInitialize)(this.ana_PictureBox)).EndInit();
             this.kullanici_Panel.ResumeLayout(false);
             this.kullanici_Panel.PerformLayout();
+            this.Kullanici_Bilgilerim_Panel.ResumeLayout(false);
+            this.Kullanici_Bilgilerim_Panel.PerformLayout();
             this.kullanici_YeniKitap_Panel.ResumeLayout(false);
             this.kullanici_YeniKitap_Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kullanici_YeniKitap_dataGridView)).EndInit();
@@ -929,15 +1013,13 @@ namespace KütüphaneV2
             this.kullanici_Menu.PerformLayout();
             this.gorevli_Panel.ResumeLayout(false);
             this.gorevli_Panel.PerformLayout();
+            this.gorevli_Bilgilerim_Panel.ResumeLayout(false);
+            this.gorevli_Bilgilerim_Panel.PerformLayout();
             this.gorevli_YeniKitap_Panel.ResumeLayout(false);
             this.gorevli_YeniKitap_Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gorevli_YeniKitap_dataGridView)).EndInit();
             this.gorevli_Menu.ResumeLayout(false);
             this.gorevli_Menu.PerformLayout();
-            this.Kullanici_Bilgilerim_Panel.ResumeLayout(false);
-            this.Kullanici_Bilgilerim_Panel.PerformLayout();
-            this.gorevli_Bilgilerim_Panel.ResumeLayout(false);
-            this.gorevli_Bilgilerim_Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1019,7 +1101,15 @@ namespace KütüphaneV2
         private System.Windows.Forms.Label gorevli_Sifre_Label;
         private System.Windows.Forms.Label gorevli_Soyad_Label;
         private System.Windows.Forms.Label gorevli_Ad_Label;
-        private System.Windows.Forms.ToolStripMenuItem bilgilerimToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem gorevli_bilgilerimToolStripMenuItem;
+        private System.Windows.Forms.Label kullanici_GuvenlikKelimesi_label;
+        private System.Windows.Forms.Label kullanici_TcNo_label;
+        private System.Windows.Forms.TextBox kullanici_GuvenlikKelimesi_TextBox;
+        private System.Windows.Forms.TextBox kullanici_TcNo_TextBox;
+        private System.Windows.Forms.Label gorevli_GuvenlikKelimesi_label;
+        private System.Windows.Forms.Label gorevli_TcNo_label;
+        private System.Windows.Forms.TextBox gorevli_GuvenlikKelimesi_TextBox;
+        private System.Windows.Forms.TextBox gorevli_TcNo_TextBox;
     }
 }
 
