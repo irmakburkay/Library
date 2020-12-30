@@ -90,15 +90,6 @@ namespace KütüphaneV2
             this.kullanici_Talepler_Kira_radioButton = new System.Windows.Forms.RadioButton();
             this.kullanici_Talepler_Yeni_radioButton = new System.Windows.Forms.RadioButton();
             this.kullanici_Talepler_dataGridView = new System.Windows.Forms.DataGridView();
-            this.kullanici_YeniKitap_Panel = new System.Windows.Forms.Panel();
-            this.kullanici_YeniKitap_dataGridView = new System.Windows.Forms.DataGridView();
-            this.kullanici_YeniKitap_basimyili_maskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.kullanici_YeniKitap_yazar_label = new System.Windows.Forms.Label();
-            this.kullanici_YeniKitap_basimyili_label = new System.Windows.Forms.Label();
-            this.kullanici_YeniKitap_kitapadi_label = new System.Windows.Forms.Label();
-            this.kullanici_YeniKitap_yazar_textBox = new System.Windows.Forms.TextBox();
-            this.kullanici_YeniKitap_kitapadi_textBox = new System.Windows.Forms.TextBox();
-            this.kullanici_YeniKitap_button = new System.Windows.Forms.Button();
             this.kullanici_Menu = new System.Windows.Forms.MenuStrip();
             this.bilgilerimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kullanici_yeniKitapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,7 +125,6 @@ namespace KütüphaneV2
             this.gorevli_YeniKitap_yazar_textBox = new System.Windows.Forms.TextBox();
             this.gorevli_YeniKitap_kitapadi_textBox = new System.Windows.Forms.TextBox();
             this.gorevli_YeniKitap_button = new System.Windows.Forms.Button();
-            this.gorevli_Menu = new System.Windows.Forms.MenuStrip();
             this.gorevli_yeniKitapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gorevli_taleplerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gorevli_MenuCikis = new System.Windows.Forms.ToolStripMenuItem();
