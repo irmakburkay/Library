@@ -145,6 +145,16 @@ namespace KütüphaneV2
             kullanici_Talepler_Onaylandi_radioButton.Text = "Onaylandı";
             kullanici_Talepler_Onaylanmadi_radioButton.Text = "Onaylanmadı";
             /*------------------------Talepler------------------------*/
+            /*------------------------hakkımızda----------------------*/
+            kullaniciPanelListe.Add(kullanici_hakkimizda_panel);
+            kullanici_hakkimizda_panel.BorderStyle = BorderStyle.FixedSingle;
+            kullanici_hakkimizda_panel.BackColor = Color.White;
+            /*------------------------hakkımızda----------------------*/
+            /*------------------------bilgilerim----------------------*/
+            kullaniciPanelListe.Add(kullanici_bilgilerim_panel);
+            kullanici_bilgilerim_panel.BorderStyle = BorderStyle.FixedSingle;
+            kullanici_bilgilerim_panel.BackColor = Color.White;
+            /*------------------------bilgilerim----------------------*/
             /*-------------------------------kullanıcı_Panel------------------*/
 
             /*-------------------------------görevli_Panel--------------------*/
@@ -165,6 +175,11 @@ namespace KütüphaneV2
             gorevli_Talepler_Onaylanmadi_radioButton.Text = "Onaylanmadı";
             gorevli_Talepler_Button.Text = "Onayla";
             /*------------------------Talepler------------------------*/
+            /*------------------------bilgilerim----------------------*/
+            gorevliPanel_Liste.Add(gorevli_bilgilerim_panel);
+            gorevli_bilgilerim_panel.BorderStyle = BorderStyle.FixedSingle;
+            gorevli_bilgilerim_panel.BackColor = Color.White;
+            /*------------------------bilgilerim----------------------*/
             /*-------------------------------görevli_Panel--------------------*/
         }
 
@@ -255,9 +270,25 @@ namespace KütüphaneV2
                             ana_girisSifre_textBox.Text = "";
                             ana_girisSifre_checkBox.Checked = false;
                             if (insan is Kullanici)
+                            {
+                                kullanici_bilgilerimToolStripMenuItem.Text = insan.isim + insan.soyisim;
+                                kullanici_bilgilerim_ad_textbox.Text = insan.isim;
+                                kullanici_bilgilerim_soyad_textbox.Text = insan.soyisim;
+                                kullanici_bilgilerim_tcno_textbox.Text = insan.tc;
+                                kullanici_bilgilerim_sifre_textbox.Text = insan.sifre;
+                                kullanici_bilgilerim_guvenlikkelimesi_textbox.Text = insan.guvenlikKelimesi;
                                 panelCagir(kullanici_Panel, panel_Liste);
+                            }
                             else if (insan is Gorevli)
+                            {
+                                gorevli_bilgilerimToolStripMenuItem.Text = insan.isim + insan.soyisim;
+                                gorevli_bilgilerim_ad_textbox.Text = insan.isim;
+                                gorevli_bilgilerim_soyad_textbox.Text = insan.soyisim;
+                                gorevli_bilgilerim_tcno_textbox.Text = insan.tc;
+                                gorevli_bilgilerim_sifre_textbox.Text = insan.sifre;
+                                gorevli_bilgilerim_guvenlikelimesi_textbox.Text = insan.guvenlikKelimesi;
                                 panelCagir(gorevli_Panel, panel_Liste);
+                            }
                         }
                         else
                             MessageBox.Show("Şifre yanlış girildi!");
@@ -430,7 +461,31 @@ namespace KütüphaneV2
         }
 
         /*------------------------Talepler------------------------*/
+        /*------------------------hakkımızda----------------------*/
+        private void hakkımızdaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCagir(kullanici_hakkimizda_panel, kullaniciPanelListe);
+        }
+        /*------------------------hakkımızda----------------------*/
+        /*------------------------bilgilerim----------------------*/
 
+        private void bilgilerimToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            panelCagir(kullanici_bilgilerim_panel, kullaniciPanelListe);
+        }
+
+        private void kullanici_bilgilerimiguncelle_button_Click(object sender, EventArgs e)
+        {
+            insan.bilgiGuncelle(kullanici_bilgilerim_sifre_textbox.Text, kullanici_bilgilerim_ad_textbox.Text, kullanici_bilgilerim_soyad_textbox.Text, kullanici_bilgilerim_guvenlikkelimesi_textbox.Text);
+            MessageBox.Show("Bilgileriniz Guncellendi");
+            insan.bilgiAl(insan.tc);
+            kullanici_bilgilerim_ad_textbox.Text = insan.isim;
+            kullanici_bilgilerim_soyad_textbox.Text = insan.soyisim;
+            kullanici_bilgilerim_tcno_textbox.Text = insan.tc;
+            kullanici_bilgilerim_sifre_textbox.Text = insan.sifre;
+            kullanici_bilgilerim_guvenlikkelimesi_textbox.Text = insan.guvenlikKelimesi;
+        }
+        /*------------------------bilgilerim----------------------*/
         /*-------------------------------kullanıcı_Panel------------------*/
         /*-------------------------------görevli_Panel--------------------*/
 
@@ -494,7 +549,7 @@ namespace KütüphaneV2
         private void gorevli_Talepler_Button_Click(object sender, EventArgs e)      //datagridview de seçilen hücreye göre işlem yapar
         {
             int i = gorevli_Talepler_dataGridView.SelectedRows.Count;
-            if (i>0)
+            if (i>=0)
             {
                 switch (gorevli_Talepler_dataGridView.Rows[i].Cells["İşlem"].Value.ToString())
                 {
@@ -512,6 +567,24 @@ namespace KütüphaneV2
         }
 
         /*------------------------Talepler------------------------*/
+
+        /*------------------------bilgilerim----------------------*/
+        private void bilgilerimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCagir(gorevli_bilgilerim_panel, gorevliPanel_Liste);
+        }
+        private void gorevli_bilgilerimguncelle_button_Click(object sender, EventArgs e)
+        {
+            insan.bilgiGuncelle(gorevli_bilgilerim_sifre_textbox.Text, gorevli_bilgilerim_ad_textbox.Text, gorevli_bilgilerim_soyad_textbox.Text, gorevli_bilgilerim_guvenlikelimesi_textbox.Text);
+            MessageBox.Show("Bilgileriniz Guncellendi");
+            insan.bilgiAl(insan.tc);
+            gorevli_bilgilerim_ad_textbox.Text = insan.isim;
+            gorevli_bilgilerim_soyad_textbox.Text = insan.soyisim;
+            gorevli_bilgilerim_tcno_textbox.Text = insan.tc;
+            gorevli_bilgilerim_sifre_textbox.Text = insan.sifre;
+            gorevli_bilgilerim_guvenlikelimesi_textbox.Text = insan.guvenlikKelimesi;
+        }
+        /*------------------------bilgilerim----------------------*/
         /*-------------------------------görevli_Panel--------------------*/
     }
 }
