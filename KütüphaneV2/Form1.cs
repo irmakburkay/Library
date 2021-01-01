@@ -511,6 +511,16 @@ namespace KütüphaneV2
             gorevli_taleplerToolStripMenuItem_Click(sender,e);
         }
 
+        private void kullanici_hakkimizda_metin_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hakkımızdaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCagir(kullanici_hakkimizda_panel, kullaniciPanelListe);
+        }
+
         /*------------------------Talepler------------------------*/
         /*-------------------------------görevli_Panel--------------------*/
     }
