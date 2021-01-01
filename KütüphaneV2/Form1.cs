@@ -525,3 +525,53 @@ namespace KütüphaneV2
         /*-------------------------------görevli_Panel--------------------*/
     }
 }
+/*
+         private void bilgilerimToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            bilgilerimToolStripMenuItem1.Text = insan.isim + insan.soyisim;
+            panelCagir(kullanici_bilgilerim_panel, kullaniciPanelListe);
+
+        }
+
+        private void kullanici_bilgilerimiguncelle_button_Click(object sender, EventArgs e)
+        {
+           
+            insan.bilgiAl(insan.tc);
+            kullanici_bilgilerim_ad_textbox.Text = insan.isim;
+            kullanici_bilgilerim_soyad_textbox.Text = insan.soyisim;
+            kullanici_bilgilerim_tcno_textbox.Text = insan.tc;
+            kullanici_bilgilerim_sifre_textbox.Text = insan.sifre;
+            kullanici_bilgilerim_guvenlikkelimesi_textbox.Text = insan.guvenlikKelimesi;
+            MessageBox.Show("Bilgileriniz Guncellendi");
+
+        }
+
+        private void kullanici_bilgilerim_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gorevli_bilgilerimguncelle_button_Click(object sender, EventArgs e)
+        {
+            insan.bilgiAl(insan.tc);
+            gorevli_bilgilerim_ad_textbox.Text = insan.isim;
+            gorevli_bilgilerim_soyad_textbox.Text = insan.soyisim;
+            gorevli_bilgilerim_tcno_textbox.Text = insan.tc;
+            gorevli_bilgilerim_sifre_textbox.Text = insan.sifre;
+            gorevli_bilgilerim_guvenlikelimesi_textbox.Text = insan.guvenlikKelimesi;
+            MessageBox.Show("Bilgileriniz Guncellendi");
+
+        }
+
+        private void bilgilerimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bilgilerimToolStripMenuItem.Text = insan.isim + insan.soyisim;
+            panelCagir(gorevli_bilgilerim_panel, gorevliPanel_Liste);
+        }
+
+        private void hakkımızdaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCagir(kullanici_hakkimizda_panel, kullaniciPanelListe);
+        }
+
+ */
