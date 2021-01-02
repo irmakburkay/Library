@@ -271,12 +271,12 @@ namespace KütüphaneV2
                             ana_girisSifre_checkBox.Checked = false;
                             if (insan is Kullanici)
                             {
-                                kullanici_bilgilerimToolStripMenuItem.Text = insan.isim + insan.soyisim;
+                                kullanici_bilgilerimToolStripMenuItem.Text = insan.isim + " " + insan.soyisim;
                                 panelCagir(kullanici_Panel, panel_Liste);
                             }
                             else if (insan is Gorevli)
                             {
-                                gorevli_bilgilerimToolStripMenuItem.Text = insan.isim + insan.soyisim;
+                                gorevli_bilgilerimToolStripMenuItem.Text = insan.isim + " " + insan.soyisim;
                                 panelCagir(gorevli_Panel, panel_Liste);
                             }
                         }
@@ -474,6 +474,7 @@ namespace KütüphaneV2
             insan.bilgiGuncelle(kullanici_bilgilerim_sifre_textbox.Text, kullanici_bilgilerim_ad_textbox.Text, kullanici_bilgilerim_soyad_textbox.Text, kullanici_bilgilerim_guvenlikkelimesi_textbox.Text);
             MessageBox.Show("Bilgileriniz Guncellendi");
             insan.bilgiAl(insan.tc);
+            kullanici_bilgilerimToolStripMenuItem.Text = insan.isim + " " + insan.soyisim;
             bilgilerimToolStripMenuItem1_Click(sender,e);
         }
         /*------------------------bilgilerim----------------------*/
@@ -574,6 +575,7 @@ namespace KütüphaneV2
             insan.bilgiGuncelle(gorevli_bilgilerim_sifre_textbox.Text, gorevli_bilgilerim_ad_textbox.Text, gorevli_bilgilerim_soyad_textbox.Text, gorevli_bilgilerim_guvenlikelimesi_textbox.Text);
             MessageBox.Show("Bilgileriniz Guncellendi");
             insan.bilgiAl(insan.tc);
+            gorevli_bilgilerimToolStripMenuItem.Text = insan.isim + " " + insan.soyisim;
             bilgilerimToolStripMenuItem_Click(sender, e);
         }
         /*------------------------bilgilerim----------------------*/
