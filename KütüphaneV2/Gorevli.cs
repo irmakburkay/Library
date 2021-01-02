@@ -75,8 +75,8 @@ namespace KütüphaneV2
 
         public override void kitapKirala(long talep_id)             //talep_id ile Talep tablosundan kitap_id ve insan_id alır, kiralama işlemini rapora ekler, kitap durumunu "Kullanıcı" olarak değiştirir ve talep durumunu "Onaylandı" olarak düzenler
         {
-            long kitap_id = int.Parse(sqlString("SELECT kitap_id FROM Talep WHERE talep.id=" + talep_id));
-            long insan_id = int.Parse(sqlString("SELECT insan_id FROM Talep WHERE talep.id=" + talep_id));
+            long kitap_id = int.Parse(sqlString("SELECT kitap_id FROM Talep WHERE talep_id=" + talep_id));
+            long insan_id = int.Parse(sqlString("SELECT insan_id FROM Talep WHERE talep_id=" + talep_id));
             raporEkle(insan_id, kitap_id, DateTime.Today);
             sqlIslem("UPDATE Kitap SET kitapDurumu='Kullanıcı' WHERE kitap_id=" + kitap_id);
             sqlIslem("UPDATE Talep SET talepDurumu='Onaylandı' WHERE talep_id=" + talep_id);

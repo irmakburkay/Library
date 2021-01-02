@@ -75,7 +75,7 @@ namespace KütüphaneV2
         public override void kitapIade(long rapor_id,double cezaTutari)
         {
             raporGuncelle(rapor_id, DateTime.Today, cezaTutari);
-            sqlIslem("UPDATE Kitap,Rapor SET Kitap.kitapDurumu='Kütüphane' WHERE Rapor.rapor_id=" + rapor_id + " AND Rapor.kitap_id=Kitap.kiatp_id");
+            sqlIslem("UPDATE Kitap,Rapor SET Kitap.kitapDurumu='Kütüphane' WHERE Rapor.rapor_id=" + rapor_id + " AND Rapor.kitap_id=Kitap.kitap_id");
         }
     }
 }
