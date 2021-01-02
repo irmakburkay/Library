@@ -67,12 +67,13 @@ namespace KütüphaneV2
             }
         }
 
-        private void dgwFiltrele(DataGridView dataGridView, string sutunAdi, string deger)     //sütünadı, deger metnini içeriyorsa,datagridview deki satırları filtreler
+        private void dgwFiltrele(DataGridView dataGridView, string sutunAdi, string deger) //sütünadı, deger metnini içeriyorsa,datagridview deki satırları filtreler
         {
             foreach (DataGridViewRow dataGridViewRow in dataGridView.Rows)
             {
                 if (dataGridViewRow.Cells[sutunAdi].Value.ToString().ToLower().Contains(deger) == true ||
-                    dataGridViewRow.Cells[sutunAdi].Value.ToString().ToUpper().Contains(deger) == true)
+                    dataGridViewRow.Cells[sutunAdi].Value.ToString().ToUpper().Contains(deger) == true ||
+                    dataGridViewRow.Cells[sutunAdi].Value.ToString().Contains(deger) == true)
                 {
                     dataGridViewRow.Visible = true;
                 }
@@ -518,7 +519,7 @@ namespace KütüphaneV2
         /*------------------------bilgilerim----------------------*/
         /*------------------------Raporlar------------------------*/
 
-        private void raporlarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void raporlarToolStripMenuItem_Click(object sender, EventArgs e)        //panel içindeki textboxları boşaltır datagridviewi veritabanındaki tabloyla doldurur ve paneli çağırır
         {
             kullanici_Rapor_ad_textBox.Text = "";
             kullanici_Rapor_yazar_textBox.Text = "";
@@ -527,28 +528,28 @@ namespace KütüphaneV2
             panelCagir(kullanici_Rapor_Panel,kullaniciPanelListe);
         }
 
-        private void kullanici_Rapor_basimYili_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void kullanici_Rapor_basimYili_textBox_KeyPress(object sender, KeyPressEventArgs e)     //basım yılı textbox içine sadece sayı girilmesini sağlar
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
         }
 
-        private void kullanici_Rapor_ad_textBox_TextChanged(object sender, EventArgs e)
+        private void kullanici_Rapor_ad_textBox_TextChanged(object sender, EventArgs e)                 //textbox içine yazıldıkça datagridviewi filtreler
         {
             dgwFiltrele(kullanici_Rapor_dataGridView,"İsim",kullanici_Rapor_ad_textBox.Text);
         }
 
-        private void kullanici_Rapor_yazar_textBox_TextChanged(object sender, EventArgs e)
+        private void kullanici_Rapor_yazar_textBox_TextChanged(object sender, EventArgs e)                 //textbox içine yazıldıkça datagridviewi filtreler
         {
             dgwFiltrele(kullanici_Rapor_dataGridView, "Yazar", kullanici_Rapor_yazar_textBox.Text);
         }
 
-        private void kullanici_Rapor_basimYili_textBox_TextChanged(object sender, EventArgs e)
+        private void kullanici_Rapor_basimYili_textBox_TextChanged(object sender, EventArgs e)                 //textbox içine yazıldıkça datagridviewi filtreler
         {
             dgwFiltrele(kullanici_Rapor_dataGridView, "Basım Yılı", kullanici_Rapor_basimYili_textBox.Text);
         }
 
-        private void kullanici_Rapor_iade_button_Click(object sender, EventArgs e)      //bitmedi
+        private void kullanici_Rapor_iade_button_Click(object sender, EventArgs e)      //seçilen satırdaki kitabı iade eder
         {
             foreach (DataGridViewRow dataGridViewRow in kullanici_Rapor_dataGridView.SelectedRows)
             {
@@ -631,7 +632,7 @@ namespace KütüphaneV2
             dgwFiltrele(gorevli_Talepler_Reddedildi_radioButton, gorevli_Talepler_dataGridView, "Durum", "Reddedildi");
         }
 
-        private void gorevli_Talepler_Button_Click(object sender, EventArgs e)      //datagridview de seçilen hücreye göre işlem yapar
+        private void gorevli_Talepler_Button_Click(object sender, EventArgs e)      //datagridview de seçilen hücreye göre onaylama işlemi yapar
         {
             foreach (DataGridViewRow dataGridViewRow in gorevli_Talepler_dataGridView.SelectedRows)
             {
@@ -656,7 +657,7 @@ namespace KütüphaneV2
             }
         }
 
-        private void gorevli_Talepler_Reddet_button_Click(object sender, EventArgs e)
+        private void gorevli_Talepler_Reddet_button_Click(object sender, EventArgs e)       //seçilen talebi reddeder
         {
             foreach (DataGridViewRow dataGridViewRow in gorevli_Talepler_dataGridView.SelectedRows)
             {
@@ -691,13 +692,13 @@ namespace KütüphaneV2
         }
         /*------------------------bilgilerim----------------------*/
         /*------------------------Raporlar------------------------*/
-        private void gorevli_Rapor_basımYili_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void gorevli_Rapor_basımYili_textBox_KeyPress(object sender, KeyPressEventArgs e)    //basım yılı textbox içine sadece sayı girilmesini sağlar
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
         }
 
-        private void raporlarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void raporlarToolStripMenuItem_Click_1(object sender, EventArgs e)        //panel içindeki textboxları boşaltır datagridviewi veritabanındaki tabloyla doldurur ve paneli çağırır
         {
             gorevli_Rapor_ad_textBox.Text = "";
             gorevli_Rapor_yazar_textBox.Text = "";
@@ -706,17 +707,17 @@ namespace KütüphaneV2
             panelCagir(gorevli_Rapor_Panel,gorevliPanel_Liste);
         }
 
-        private void gorevli_Rapor_ad_textBox_TextChanged(object sender, EventArgs e)
+        private void gorevli_Rapor_ad_textBox_TextChanged(object sender, EventArgs e)                 //textbox içine yazıldıkça datagridviewi filtreler
         {
             dgwFiltrele(gorevli_Rapor_dataGridView,"İsim",gorevli_Rapor_ad_textBox.Text);
         }
 
-        private void gorevli_Rapor_yazar_textBox_TextChanged(object sender, EventArgs e)
+        private void gorevli_Rapor_yazar_textBox_TextChanged(object sender, EventArgs e)                 //textbox içine yazıldıkça datagridviewi filtreler
         {
             dgwFiltrele(gorevli_Rapor_dataGridView, "Yazar", gorevli_Rapor_yazar_textBox.Text);
         }
 
-        private void gorevli_Rapor_basimYili_textBox_TextChanged(object sender, EventArgs e)
+        private void gorevli_Rapor_basimYili_textBox_TextChanged(object sender, EventArgs e)                 //textbox içine yazıldıkça datagridviewi filtreler
         {
             dgwFiltrele(gorevli_Rapor_dataGridView, "Basım Yılı", gorevli_Rapor_basimYili_textBox.Text);
         }
