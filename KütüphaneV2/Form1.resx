@@ -120,9 +120,6 @@
   <metadata name="kullanici_Menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>152, 17</value>
   </metadata>
-  <metadata name="kullanici_Menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>152, 17</value>
-  </metadata>
   <data name="kullanici_hakkimizda_metin_label.Text" xml:space="preserve">
     <value>Kuruluş
 
@@ -1264,9 +1261,6 @@ yetiştirmek amacıyla kütüphanelerimizde kurduğumuz bilgisayarlar ve interne
         QgghhBBCCCGEEEIIiT8NDf8fuLSiv8wQI24AAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="gorevli_Menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="gorevli_Menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

@@ -68,7 +68,7 @@ namespace KütüphaneV2
         public virtual void kitapSil(long kitap_id) { }
         public virtual void kitapEkle(long talep_id) { }
         public virtual void kitapKirala(long id) { }
-        public virtual void kitapIade(long rapor_id, double cezaTutarı) { }
+        public virtual void kitapIade(long rapor_id, double cezaTutari) { }
         public virtual void raporEkle(long insan_id, long kitap_id, DateTime kiraTarihi) { }
         public virtual void raporGuncelle(long rapor_id, DateTime iadeTarihi, double cezaTutari) { }
     }
