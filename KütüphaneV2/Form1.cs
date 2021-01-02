@@ -51,7 +51,7 @@ namespace KütüphaneV2
                     }
                     break;
                 case false:
-                    foreach (DataGridViewRow dataGridViewRow in gorevli_Talepler_dataGridView.Rows)
+                    foreach (DataGridViewRow dataGridViewRow in dataGridView.Rows)
                     {
                         if (dataGridViewRow.Cells[sutunAdi].Value.ToString()==deger)
                         {
@@ -64,6 +64,23 @@ namespace KütüphaneV2
                         }
                     }
                     break;
+            }
+        }
+
+        private void dgwFiltrele(DataGridView dataGridView, string sutunAdi, string deger)     //sütünadı, deger metnini içeriyorsa,datagridview deki satırları filtreler
+        {
+            foreach (DataGridViewRow dataGridViewRow in dataGridView.Rows)
+            {
+                if (dataGridViewRow.Cells[sutunAdi].Value.ToString().ToLower().Contains(deger) == true ||
+                    dataGridViewRow.Cells[sutunAdi].Value.ToString().ToUpper().Contains(deger) == true)
+                {
+                    dataGridViewRow.Visible = true;
+                }
+                else
+                {
+                    dataGridViewRow.DataGridView.CurrentCell = null;
+                    dataGridViewRow.Visible = false;
+                }
             }
         }
 
