@@ -272,21 +272,11 @@ namespace KütüphaneV2
                             if (insan is Kullanici)
                             {
                                 kullanici_bilgilerimToolStripMenuItem.Text = insan.isim + insan.soyisim;
-                                kullanici_bilgilerim_ad_textbox.Text = insan.isim;
-                                kullanici_bilgilerim_soyad_textbox.Text = insan.soyisim;
-                                kullanici_bilgilerim_tcno_textbox.Text = insan.tc;
-                                kullanici_bilgilerim_sifre_textbox.Text = insan.sifre;
-                                kullanici_bilgilerim_guvenlikkelimesi_textbox.Text = insan.guvenlikKelimesi;
                                 panelCagir(kullanici_Panel, panel_Liste);
                             }
                             else if (insan is Gorevli)
                             {
                                 gorevli_bilgilerimToolStripMenuItem.Text = insan.isim + insan.soyisim;
-                                gorevli_bilgilerim_ad_textbox.Text = insan.isim;
-                                gorevli_bilgilerim_soyad_textbox.Text = insan.soyisim;
-                                gorevli_bilgilerim_tcno_textbox.Text = insan.tc;
-                                gorevli_bilgilerim_sifre_textbox.Text = insan.sifre;
-                                gorevli_bilgilerim_guvenlikelimesi_textbox.Text = insan.guvenlikKelimesi;
                                 panelCagir(gorevli_Panel, panel_Liste);
                             }
                         }
@@ -471,6 +461,11 @@ namespace KütüphaneV2
 
         private void bilgilerimToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            kullanici_bilgilerim_ad_textbox.Text = insan.isim;
+            kullanici_bilgilerim_soyad_textbox.Text = insan.soyisim;
+            kullanici_bilgilerim_tcno_textbox.Text = insan.tc;
+            kullanici_bilgilerim_sifre_textbox.Text = insan.sifre;
+            kullanici_bilgilerim_guvenlikkelimesi_textbox.Text = insan.guvenlikKelimesi;
             panelCagir(kullanici_bilgilerim_panel, kullaniciPanelListe);
         }
 
@@ -479,11 +474,7 @@ namespace KütüphaneV2
             insan.bilgiGuncelle(kullanici_bilgilerim_sifre_textbox.Text, kullanici_bilgilerim_ad_textbox.Text, kullanici_bilgilerim_soyad_textbox.Text, kullanici_bilgilerim_guvenlikkelimesi_textbox.Text);
             MessageBox.Show("Bilgileriniz Guncellendi");
             insan.bilgiAl(insan.tc);
-            kullanici_bilgilerim_ad_textbox.Text = insan.isim;
-            kullanici_bilgilerim_soyad_textbox.Text = insan.soyisim;
-            kullanici_bilgilerim_tcno_textbox.Text = insan.tc;
-            kullanici_bilgilerim_sifre_textbox.Text = insan.sifre;
-            kullanici_bilgilerim_guvenlikkelimesi_textbox.Text = insan.guvenlikKelimesi;
+            bilgilerimToolStripMenuItem1_Click(sender,e);
         }
         /*------------------------bilgilerim----------------------*/
         /*-------------------------------kullanıcı_Panel------------------*/
@@ -571,6 +562,11 @@ namespace KütüphaneV2
         /*------------------------bilgilerim----------------------*/
         private void bilgilerimToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            gorevli_bilgilerim_ad_textbox.Text = insan.isim;
+            gorevli_bilgilerim_soyad_textbox.Text = insan.soyisim;
+            gorevli_bilgilerim_tcno_textbox.Text = insan.tc;
+            gorevli_bilgilerim_sifre_textbox.Text = insan.sifre;
+            gorevli_bilgilerim_guvenlikelimesi_textbox.Text = insan.guvenlikKelimesi;
             panelCagir(gorevli_bilgilerim_panel, gorevliPanel_Liste);
         }
         private void gorevli_bilgilerimguncelle_button_Click(object sender, EventArgs e)
@@ -578,11 +574,7 @@ namespace KütüphaneV2
             insan.bilgiGuncelle(gorevli_bilgilerim_sifre_textbox.Text, gorevli_bilgilerim_ad_textbox.Text, gorevli_bilgilerim_soyad_textbox.Text, gorevli_bilgilerim_guvenlikelimesi_textbox.Text);
             MessageBox.Show("Bilgileriniz Guncellendi");
             insan.bilgiAl(insan.tc);
-            gorevli_bilgilerim_ad_textbox.Text = insan.isim;
-            gorevli_bilgilerim_soyad_textbox.Text = insan.soyisim;
-            gorevli_bilgilerim_tcno_textbox.Text = insan.tc;
-            gorevli_bilgilerim_sifre_textbox.Text = insan.sifre;
-            gorevli_bilgilerim_guvenlikelimesi_textbox.Text = insan.guvenlikKelimesi;
+            bilgilerimToolStripMenuItem_Click(sender, e);
         }
         /*------------------------bilgilerim----------------------*/
         /*-------------------------------görevli_Panel--------------------*/
