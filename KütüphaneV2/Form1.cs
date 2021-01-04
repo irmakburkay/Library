@@ -183,6 +183,12 @@ namespace KütüphaneV2
             kullanici_Rapor_basimYili_label.Text = "Basım Yılı";
             kullanici_Rapor_iade_button.Text = "İade Et";
             /*------------------------Raporlar------------------------*/
+            /*------------------------kullanici_kitaplar------------------------*/
+
+            /*------------------------kullanici_kitaplar------------------------*/
+            kullaniciPanelListe.Add(kullanici_kitaplar_panel);
+
+
             /*-------------------------------kullanıcı_Panel------------------*/
 
             /*-------------------------------görevli_Panel--------------------*/
@@ -218,6 +224,12 @@ namespace KütüphaneV2
             gorevli_Rapor_yazar_label.Text = "Yazar";
             gorevli_Rapor_basimYili_label.Text = "Basım Yılı";
             /*------------------------Raporlar------------------------*/
+            /*-----------------------görevli_kitaplrar---------------*/
+            gorevliPanel_Liste.Add(gorevli_kitaplar_panel);
+
+            /*-----------------------görevli_kitaplrar---------------*/
+
+
             /*-------------------------------görevli_Panel--------------------*/
         }
 
@@ -568,6 +580,54 @@ namespace KütüphaneV2
             }
         }
         /*------------------------Raporlar------------------------*/
+        /*------------------kitaplar---------------------*/
+        private void kitaplarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            kullanici_kitap_adi_textBox.Text = "";
+            kullanici_yazar_textBox.Text = "";
+            kullanici_basimyili_textBox.Text = "";
+            kullanici_kitaplar_dataGridView.DataSource = insan.kitapSorgula();
+            panelCagir(kullanici_kitaplar_panel, kullaniciPanelListe);
+        }
+        /*-----------------kitaplar-------------------*/
+        /*------------------Kiralama------------------------*/
+        private void kullanici_kirala_button_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (DataGridViewRow datagridviewrow in kullanici_kitaplar_dataGridView.SelectedRows)
+                {
+                    if (datagridviewrow.Cells["Kitap Durumu"].Value.ToString().Equals("Kütüphane"))
+                    {
+                        insan.kitapSil(int.Parse(datagridviewrow.Cells["ID"].Value.ToString()));
+                        MessageBox.Show("Kitap kiralandı!");
+                        kitaplarToolStripMenuItem_Click(sender, e);
+                    }
+                    else
+                        MessageBox.Show("Seçilen Kitap kiralanamaz!");
+                }
+            }
+        }       
+
+        private void kullanici_kitap_adi_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(kullanici_kitaplar_dataGridView, "İsim", kullanici_kitap_adi_textBox.Text);
+
+        }
+
+        private void kullanici_yazar_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(kullanici_kitaplar_dataGridView, "Yazar", kullanici_yazar_textBox.Text);
+
+        }
+
+        private void kullanici_basimyili_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(kullanici_kitaplar_dataGridView, "Basım yılı", kullanici_basimyili_textBox.Text);
+
+        }
+        /*------------------Kiralama------------------------*/
+
+
         /*-------------------------------kullanıcı_Panel------------------*/
         /*-------------------------------görevli_Panel--------------------*/
 
@@ -721,7 +781,55 @@ namespace KütüphaneV2
         {
             dgwFiltrele(gorevli_Rapor_dataGridView, "Basım Yılı", gorevli_Rapor_basimYili_textBox.Text);
         }
+
+
         /*------------------------Raporlar------------------------*/
+        /*----------------------kitaplar----------------------------*/
+        private void gorevli_kitapsil_button_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow datagridviewrow in gorevli_kitaplar_dataGridView.SelectedRows)
+            {
+                if (datagridviewrow.Cells["Kitap Durumu"].Value.ToString().Equals("Kütüphane"))
+                {
+                    insan.kitapSil(int.Parse(datagridviewrow.Cells["ID"].Value.ToString()));
+                    MessageBox.Show("Kitap Silindi!");
+                    kitaplarToolStripMenuItem_Click(sender, e);
+                }
+                else
+                    MessageBox.Show("Seçilen Kitap Silinemez!");
+            }
+        }
+        private void kitaplarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gorevli_kitap_adi_textBox.Text = "";
+            gorevli_yazar_textBox.Text = "";
+            gorevli_basim_yili_textBox.Text = "";
+            gorevli_kitaplar_dataGridView.DataSource = insan.kitapSorgula();
+            panelCagir(gorevli_kitaplar_panel, gorevliPanel_Liste);
+        }
+
+
+
+        private void gorevli_kitap_adi_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(gorevli_kitaplar_dataGridView, "İsim", gorevli_kitap_adi_textBox.Text);
+        }
+
+        private void gorevli_yazar_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(gorevli_kitaplar_dataGridView, "Yazar", gorevli_yazar_textBox.Text);
+        }
+
+        private void gorevli_basim_yili_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(gorevli_kitaplar_dataGridView, "Basım Yılı", gorevli_yazar_textBox.Text);
+
+        }
+
+
+
+        /*----------------------kitaplar----------------------------*/
+
         /*-------------------------------görevli_Panel--------------------*/
     }
 }
