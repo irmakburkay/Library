@@ -120,6 +120,9 @@
   <metadata name="kullanici_Menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>152, 17</value>
   </metadata>
+  <metadata name="kullanici_Menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>152, 17</value>
+  </metadata>
   <data name="kullanici_hakkimizda_metin_label.Text" xml:space="preserve">
     <value>Kuruluş
 
@@ -129,10 +132,10 @@ okuyucu hizmetlerinin 7/24 saat sürdürülebilmesi amacıyla okuma salonları o
 Bu salonlar da ayrıca bilgisayar ve internet hizmeti de verilmektedir. Kütüphanelerimiz bilişim ve 
 iletişim teknolojileri alt yapısıyla koleksiyonunda yer alan 25.163 elektronik kitap, 18.648 elektronik dergi, 
 20.000’i aşkın basılı kitap koleksiyonu ile okuyucularına hizmet sunmaktadır. Mobil uygulamalar ve
- elektronik kütüphanecilik hizmetleriyle de 7 gün 24 saat okuyuculara erişim sağlanmaktadır.
+elektronik kütüphanecilik hizmetleriyle de 7 gün 24 saat okuyuculara erişim sağlanmaktadır.
 Ülkemiz gençlerini bilgi toplumuna kazandırmak; araştıran, üreten ve sorgulayan bir nesil 
 yetiştirmek amacıyla kütüphanelerimizde kurduğumuz bilgisayarlar ve internet bağlantılarıyla bilgiye erişim
- sınırsız gerçekleştirilirken okuyucuların rahat bir çalışma ortamında çalışmaların
+sınırsız gerçekleştirilirken okuyucuların rahat bir çalışma ortamında çalışmaların
 ı sağlamak amacıyla “Çalışma ve Grup Çalışma Odaları” bulunmaktadır.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
