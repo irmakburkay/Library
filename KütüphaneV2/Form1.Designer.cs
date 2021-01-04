@@ -596,8 +596,8 @@ namespace KütüphaneV2
             this.kullanici_hakkımızdaToolStripMenuItem,
             this.kullanici_bilgilerimToolStripMenuItem,
             this.kullanici_yeniKitapToolStripMenuItem,
-            this.kullanici_raporlarToolStripMenuItem,
             this.kullanici_kitaplarToolStripMenuItem,
+            this.kullanici_raporlarToolStripMenuItem,
             this.kullanici_taleplerToolStripMenuItem,
             this.kullanici_MenuCikis});
             this.kullanici_Menu.Location = new System.Drawing.Point(0, 0);
@@ -1316,56 +1316,56 @@ namespace KütüphaneV2
             this.gorevli_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gorevli_bilgilerimToolStripMenuItem,
             this.gorevli_yeniKitapToolStripMenuItem,
-            this.gorevli_raporlarToolStripMenuItem,
             this.gorevli_kitaplarToolStripMenuItem,
+            this.gorevli_raporlarToolStripMenuItem,
             this.gorevli_taleplerToolStripMenuItem,
             this.gorevli_MenuCikis});
             this.gorevli_Menu.Location = new System.Drawing.Point(0, 0);
             this.gorevli_Menu.Name = "gorevli_Menu";
             this.gorevli_Menu.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.gorevli_Menu.Size = new System.Drawing.Size(1324, 30);
+            this.gorevli_Menu.Size = new System.Drawing.Size(1324, 27);
             this.gorevli_Menu.TabIndex = 0;
             this.gorevli_Menu.Text = "menuStrip1";
             // 
             // gorevli_bilgilerimToolStripMenuItem
             // 
             this.gorevli_bilgilerimToolStripMenuItem.Name = "gorevli_bilgilerimToolStripMenuItem";
-            this.gorevli_bilgilerimToolStripMenuItem.Size = new System.Drawing.Size(94, 26);
+            this.gorevli_bilgilerimToolStripMenuItem.Size = new System.Drawing.Size(94, 23);
             this.gorevli_bilgilerimToolStripMenuItem.Text = "Bilgilerim";
             this.gorevli_bilgilerimToolStripMenuItem.Click += new System.EventHandler(this.bilgilerimToolStripMenuItem_Click);
             // 
             // gorevli_yeniKitapToolStripMenuItem
             // 
             this.gorevli_yeniKitapToolStripMenuItem.Name = "gorevli_yeniKitapToolStripMenuItem";
-            this.gorevli_yeniKitapToolStripMenuItem.Size = new System.Drawing.Size(94, 26);
+            this.gorevli_yeniKitapToolStripMenuItem.Size = new System.Drawing.Size(94, 23);
             this.gorevli_yeniKitapToolStripMenuItem.Text = "Yeni Kitap";
             this.gorevli_yeniKitapToolStripMenuItem.Click += new System.EventHandler(this.gorevli_yeniKitapToolStripMenuItem_Click);
             // 
             // gorevli_raporlarToolStripMenuItem
             // 
             this.gorevli_raporlarToolStripMenuItem.Name = "gorevli_raporlarToolStripMenuItem";
-            this.gorevli_raporlarToolStripMenuItem.Size = new System.Drawing.Size(82, 26);
+            this.gorevli_raporlarToolStripMenuItem.Size = new System.Drawing.Size(82, 23);
             this.gorevli_raporlarToolStripMenuItem.Text = "Raporlar";
             this.gorevli_raporlarToolStripMenuItem.Click += new System.EventHandler(this.raporlarToolStripMenuItem_Click_1);
             // 
             // gorevli_kitaplarToolStripMenuItem
             // 
             this.gorevli_kitaplarToolStripMenuItem.Name = "gorevli_kitaplarToolStripMenuItem";
-            this.gorevli_kitaplarToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
+            this.gorevli_kitaplarToolStripMenuItem.Size = new System.Drawing.Size(78, 23);
             this.gorevli_kitaplarToolStripMenuItem.Text = "Kitaplar";
             this.gorevli_kitaplarToolStripMenuItem.Click += new System.EventHandler(this.kitaplarToolStripMenuItem_Click);
             // 
             // gorevli_taleplerToolStripMenuItem
             // 
             this.gorevli_taleplerToolStripMenuItem.Name = "gorevli_taleplerToolStripMenuItem";
-            this.gorevli_taleplerToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
+            this.gorevli_taleplerToolStripMenuItem.Size = new System.Drawing.Size(78, 23);
             this.gorevli_taleplerToolStripMenuItem.Text = "Talepler";
             this.gorevli_taleplerToolStripMenuItem.Click += new System.EventHandler(this.gorevli_taleplerToolStripMenuItem_Click);
             // 
             // gorevli_MenuCikis
             // 
             this.gorevli_MenuCikis.Name = "gorevli_MenuCikis";
-            this.gorevli_MenuCikis.Size = new System.Drawing.Size(59, 26);
+            this.gorevli_MenuCikis.Size = new System.Drawing.Size(59, 23);
             this.gorevli_MenuCikis.Text = "Çıkış";
             this.gorevli_MenuCikis.Click += new System.EventHandler(this.gorevli_MenuCikis_Click);
             // 
@@ -1982,8 +1982,8 @@ namespace KütüphaneV2
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(1348, 721);
             this.Controls.Add(this.ana_Panel);
-            this.Controls.Add(this.kullanici_Panel);
             this.Controls.Add(this.gorevli_Panel);
+            this.Controls.Add(this.kullanici_Panel);
             this.MainMenuStrip = this.gorevli_Menu;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "KIS";
