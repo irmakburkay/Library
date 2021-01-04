@@ -183,6 +183,12 @@ namespace KütüphaneV2
             kullanici_Rapor_basimYili_label.Text = "Basım Yılı";
             kullanici_Rapor_iade_button.Text = "İade Et";
             /*------------------------Raporlar------------------------*/
+            /*------------------------kitaplar------------------------*/
+            kullaniciPanelListe.Add(kullanici_kitaplar_panel);
+            kullanici_kitaplar_panel.BorderStyle = BorderStyle.FixedSingle;
+            kullanici_kitaplar_panel.BackColor = Color.White;
+            /*------------------------kitaplar------------------------*/
+
             /*-------------------------------kullanıcı_Panel------------------*/
 
             /*-------------------------------görevli_Panel--------------------*/
@@ -218,6 +224,12 @@ namespace KütüphaneV2
             gorevli_Rapor_yazar_label.Text = "Yazar";
             gorevli_Rapor_basimYili_label.Text = "Basım Yılı";
             /*------------------------Raporlar------------------------*/
+            /*------------------------kitaplar------------------------*/
+            gorevliPanel_Liste.Add(gorevli_kitaplar_panel);
+            gorevli_kitaplar_panel.BorderStyle = BorderStyle.FixedSingle;
+            gorevli_kitaplar_panel.BackColor = Color.White;
+            /*------------------------kitaplar------------------------*/
+
             /*-------------------------------görevli_Panel--------------------*/
         }
 
@@ -440,14 +452,18 @@ namespace KütüphaneV2
 
         private void kullanici_yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panelCagir(kullanici_YeniKitap_Panel, kullaniciPanelListe);
+            kullanici_YeniKitap_kitapadi_textBox.Text = "";
+            kullanici_YeniKitap_yazar_textBox.Text = "";
+            kullanici_YeniKitap_basimyili_maskedTextBox.Text = "";
             kullanici_YeniKitap_dataGridView.DataSource = insan.talepSorgula();
+            dgwFiltrele(kullanici_YeniKitap_dataGridView,"İşlem","Yeni");
+            panelCagir(kullanici_YeniKitap_Panel, kullaniciPanelListe);
         }
 
         private void kullanici_YeniKitap_button_Click(object sender, EventArgs e)
         {
             insan.kitapEkle(kullanici_YeniKitap_kitapadi_textBox.Text, kullanici_YeniKitap_yazar_textBox.Text, kullanici_YeniKitap_basimyili_maskedTextBox.Text);
-            kullanici_YeniKitap_dataGridView.DataSource = insan.talepSorgula();
+            kullanici_yeniKitapToolStripMenuItem_Click(sender,e);
         }
 
         /*------------------------YeniKitap-----------------------*/
@@ -560,7 +576,7 @@ namespace KütüphaneV2
                     if(int.Parse((DateTime.Today - kiraTarihi).Days.ToString()) > 14)
                         cezaTutari= ((DateTime.Today - kiraTarihi).Days -14) *0.5;
                     insan.kitapIade(int.Parse(dataGridViewRow.Cells["ID"].Value.ToString()),cezaTutari);
-                    MessageBox.Show("Seçilen Kitap İade Edildi!");
+                    MessageBox.Show("Seçilen Kitap İade Edildi!"+"\nCeza Tutarınız : "+cezaTutari);
                     raporlarToolStripMenuItem_Click(sender, e);
                 }
                 else
@@ -568,6 +584,52 @@ namespace KütüphaneV2
             }
         }
         /*------------------------Raporlar------------------------*/
+        /*------------------------kitaplar------------------------*/
+        private void kitaplarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            kullanici_kitap_adi_textBox.Text = "";
+            kullanici_yazar_textBox.Text = "";
+            kullanici_basimyili_textBox.Text = "";
+            kullanici_kitaplar_dataGridView.DataSource = insan.kitapSorgula();
+            panelCagir(kullanici_kitaplar_panel, kullaniciPanelListe);
+        }
+
+        private void kullanici_kirala_button_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (DataGridViewRow datagridviewrow in kullanici_kitaplar_dataGridView.SelectedRows)
+                {
+                    if (datagridviewrow.Cells["Kitap Durumu"].Value.ToString().Equals("Kütüphane"))
+                    {
+                        insan.kitapKirala(int.Parse(datagridviewrow.Cells["ID"].Value.ToString()));
+                        MessageBox.Show("Kitap Kiralama Talebi Oluşturuldu!");
+                        kitaplarToolStripMenuItem_Click(sender, e);
+                    }
+                    else
+                        MessageBox.Show("Seçilen Kitap Kiralanamaz!");
+                }
+            }
+        }       
+
+        private void kullanici_kitap_adi_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(kullanici_kitaplar_dataGridView, "Kitap İsmi", kullanici_kitap_adi_textBox.Text);
+
+        }
+
+        private void kullanici_yazar_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(kullanici_kitaplar_dataGridView, "Yazar", kullanici_yazar_textBox.Text);
+
+        }
+
+        private void kullanici_basimyili_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(kullanici_kitaplar_dataGridView, "Basım yılı", kullanici_basimyili_textBox.Text);
+
+        }
+        /*------------------------kitaplar------------------------*/
+
         /*-------------------------------kullanıcı_Panel------------------*/
         /*-------------------------------görevli_Panel--------------------*/
 
@@ -582,8 +644,11 @@ namespace KütüphaneV2
 
         private void gorevli_yeniKitapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panelCagir(gorevli_YeniKitap_Panel, gorevliPanel_Liste);
+            gorevli_YeniKitap_kitapadi_textBox.Text = "";
+            gorevli_YeniKitap_yazar_textBox.Text = "";
+            gorevli_YeniKitap_basimyili_maskedTextBox.Text = "";
             gorevli_YeniKitap_dataGridView.DataSource = insan.kitapSorgula();
+            panelCagir(gorevli_YeniKitap_Panel, gorevliPanel_Liste);
         }
 
         private void gorevli_YeniKitap_Button_Click(object sender, EventArgs e)
@@ -721,7 +786,51 @@ namespace KütüphaneV2
         {
             dgwFiltrele(gorevli_Rapor_dataGridView, "Basım Yılı", gorevli_Rapor_basimYili_textBox.Text);
         }
+
+
         /*------------------------Raporlar------------------------*/
+        /*------------------------kitaplar------------------------*/
+        private void gorevli_kitapsil_button_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow datagridviewrow in gorevli_kitaplar_dataGridView.SelectedRows)
+            {
+                if (datagridviewrow.Cells["Kitap Durumu"].Value.ToString().Equals("Kütüphane"))
+                {
+                    insan.kitapSil(int.Parse(datagridviewrow.Cells["ID"].Value.ToString()));
+                    MessageBox.Show("Kitap Silindi!");
+                    kitaplarToolStripMenuItem_Click(sender, e);
+                }
+                else
+                    MessageBox.Show("Seçilen Kitap Silinemez!");
+            }
+        }
+
+        private void kitaplarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gorevli_kitap_adi_textBox.Text = "";
+            gorevli_yazar_textBox.Text = "";
+            gorevli_basim_yili_textBox.Text = "";
+            gorevli_kitaplar_dataGridView.DataSource = insan.kitapSorgula();
+            panelCagir(gorevli_kitaplar_panel, gorevliPanel_Liste);
+        }
+
+        private void gorevli_kitap_adi_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(gorevli_kitaplar_dataGridView, "Kitap İsmi", gorevli_kitap_adi_textBox.Text);
+        }
+
+        private void gorevli_yazar_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(gorevli_kitaplar_dataGridView, "Yazar", gorevli_yazar_textBox.Text);
+        }
+
+        private void gorevli_basim_yili_textBox_TextChanged(object sender, EventArgs e)
+        {
+            dgwFiltrele(gorevli_kitaplar_dataGridView, "Basım Yılı", gorevli_basim_yili_textBox.Text);
+
+        }
+        /*------------------------kitaplar------------------------*/
+
         /*-------------------------------görevli_Panel--------------------*/
     }
 }
