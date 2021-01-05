@@ -40,9 +40,7 @@ namespace KütüphaneV2
                     foreach (DataGridViewRow dataGridViewRow in dataGridView.Rows)
                     {
                         if (dataGridViewRow.Cells[sutunAdi].Value.ToString()==deger)
-                        {
                             dataGridViewRow.Visible = true;
-                        }
                         else
                         {
                             dataGridViewRow.DataGridView.CurrentCell = null;
@@ -59,10 +57,8 @@ namespace KütüphaneV2
                             dataGridViewRow.Visible = false;
                         }
                         else
-                        {
                             dataGridViewRow.Visible = true;
                         }
-                    }
                     break;
             }
         }
@@ -143,11 +139,14 @@ namespace KütüphaneV2
             ana_ykKapat_Button.Cursor = Cursors.Hand;
             ana_ykYeniKayit_Button.Text = "Yeni Kayıt";
             ana_ykYeniKayit_Button.Cursor = Cursors.Hand;
+            ana_yk_Gorevli_radioButton.Text = "Görevli";
+            ana_yk_Gorevli_radioButton.Checked = false;
+            ana_yk_Kullanici_radioButton.Text = "Kullanıcı";
+            ana_yk_Kullanici_radioButton.Checked = true;
             /*------------------------YeniKayıt-----------------------*/
             /*-------------------------------ana_Panel------------------------*/
 
             /*-------------------------------kullanıcı_Panel------------------*/
-            //kodları buraya yazın
             /*------------------------YeniKitap-----------------------*/
             kullaniciPanelListe.Add(kullanici_YeniKitap_Panel);
             kullanici_YeniKitap_Panel.BorderStyle = BorderStyle.FixedSingle;
@@ -188,11 +187,9 @@ namespace KütüphaneV2
             kullanici_kitaplar_panel.BorderStyle = BorderStyle.FixedSingle;
             kullanici_kitaplar_panel.BackColor = Color.White;
             /*------------------------kitaplar------------------------*/
-
             /*-------------------------------kullanıcı_Panel------------------*/
 
             /*-------------------------------görevli_Panel--------------------*/
-            //kodları buraya yazın
             /*------------------------YeniKitap-----------------------*/
             gorevliPanel_Liste.Add(gorevli_YeniKitap_Panel);
             gorevli_YeniKitap_Panel.BorderStyle = BorderStyle.FixedSingle;
@@ -208,7 +205,7 @@ namespace KütüphaneV2
             gorevli_Talepler_Onaylandi_radioButton.Text = "Onaylandı";
             gorevli_Talepler_Onaylanmadi_radioButton.Text = "Onaylanmadı";
             gorevli_Talepler_Reddedildi_radioButton.Text = "Reddedildi";
-            gorevli_Talepler_Button.Text = "Onayla";
+            gorevli_Talepler_Onayla_Button.Text = "Onayla";
             gorevli_Talepler_Reddet_button.Text = "Reddet";
             /*------------------------Talepler------------------------*/
             /*------------------------bilgilerim----------------------*/
@@ -229,7 +226,17 @@ namespace KütüphaneV2
             gorevli_kitaplar_panel.BorderStyle = BorderStyle.FixedSingle;
             gorevli_kitaplar_panel.BackColor = Color.White;
             /*------------------------kitaplar------------------------*/
-
+            /*------------------------insanlar------------------------*/
+            //gorevliPanel_Liste.Add(ana_YeniKayit_Panel);
+            gorevliPanel_Liste.Add(gorevli_insanlar_panel);
+            gorevli_insanlar_panel.BorderStyle = BorderStyle.FixedSingle;
+            gorevli_insanlar_panel.BackColor=Color.White;
+            gorevli_insanlar_insanEkle_button.Text = "İnsan Ekle";
+            gorevli_insanlar_kAta_button.Text = "Kullanıcı Ata";
+            gorevli_insanlar_gAta_button.Text = "Görevli Ata";
+            gorevli_insanlar_isim_label.Text = "İsim";
+            gorevli_insanlar_soyisim_label.Text = "Soyisim";
+            /*------------------------insanlar------------------------*/
             /*-------------------------------görevli_Panel--------------------*/
         }
 
@@ -259,15 +266,30 @@ namespace KütüphaneV2
         private void ana_girisSifremiunuttum_Label_Click(object sender, EventArgs e)                                    //giriş panelindeki textbox içlerini boşaltır ve şifremi unuttum paneli ekrana getirir
         {
             panelCagir(ana_SifremiUnuttum_Panel, anaPanel_Liste);
-            ana_girisTc_textBox.Text = "";
-            ana_girisSifre_textBox.Text = "";
+            ana_suTc_textBox.Text = "";
+            ana_suGuvenlikKelimesi_textBox.Text = "";
         }
         
         private void ana_girisYeniKayit_Label_Click(object sender, EventArgs e)                                         //giriş panelindeki textbox içlerini boşaltır ve yeni kayıt paneli ekrana getirir
         {
-            panelCagir(ana_YeniKayit_Panel, anaPanel_Liste);
-            ana_girisTc_textBox.Text = "";
-            ana_girisSifre_textBox.Text = "";
+            if (insan is Gorevli)
+            {
+                ana_yk_Gorevli_radioButton.Visible = true;
+                ana_yk_Kullanici_radioButton.Visible = true;
+                panelCagir(ana_Panel,panel_Liste);
+                panelCagir(ana_YeniKayit_Panel,anaPanel_Liste);
+            }
+            else
+            {
+                ana_ykTc_textBox.Text = "";
+                ana_ykSifre_textBox.Text = "";
+                ana_ykAd_textBox.Text = "";
+                ana_ykSoyad_textBox.Text = "";
+                ana_ykGuvenlikKelimesi_textBox.Text = "";
+                ana_yk_Gorevli_radioButton.Visible = false;
+                ana_yk_Kullanici_radioButton.Visible = false;
+                panelCagir(ana_YeniKayit_Panel, anaPanel_Liste);
+            }
         }
 
         private void ana_girisSifre_checkBox_MouseClick(object sender, MouseEventArgs e)                                //tik atıldığında şifreyi gösterir, tik * olarak gösterir
@@ -325,6 +347,7 @@ namespace KütüphaneV2
                             else if (insan is Gorevli)
                             {
                                 gorevli_bilgilerimToolStripMenuItem.Text = insan.isim + " " + insan.soyisim;
+                                bilgilerimToolStripMenuItem_Click(sender,e);
                                 panelCagir(gorevli_Panel, panel_Liste);
                             }
                         }
@@ -347,16 +370,14 @@ namespace KütüphaneV2
         private void ana_suKapat_Button_Click(object sender, EventArgs e)                                                   //şifremi unuttum panelindeki textbox içlerini boşaltır ve giriş paneli ekrana getirir
         {
             panelCagir(ana_Giris_Panel,anaPanel_Liste);
-            ana_suTc_textBox.Text = "";
-            ana_suGuvenlikKelimesi_textBox.Text = "";
+            ana_girisTc_textBox.Text = "";
+            ana_girisSifre_textBox.Text = "";
         }
 
         private void ana_suTc_textBox_KeyPress(object sender, KeyPressEventArgs e)                                          //tc textbox içine sadece sayı girilmesini sağlar
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
                 e.Handled = true;
-            }
         }
 
         private void ana_suSifreAl_Button_Click(object sender, EventArgs e)                                                 //textbox içlerini kontrol eder ve şifreyi mesaj olarak verir,şifremi unuttum panelindeki textbox içlerini boşaltır ve giriş paneli ekrana getirir
@@ -393,20 +414,20 @@ namespace KütüphaneV2
 
         private void ana_ykKapat_Button_Click(object sender, EventArgs e)                   //yeni kullanıcı panelindeki textbox içlerini boşaltır ve giriş panelini ekrana getirir                                    
         {
-            panelCagir(ana_Giris_Panel, anaPanel_Liste);
-            ana_ykTc_textBox.Text = "";
-            ana_ykSifre_textBox.Text = "";
-            ana_ykAd_textBox.Text = "";
-            ana_ykSoyad_textBox.Text = "";
-            ana_ykGuvenlikKelimesi_textBox.Text = "";
+            if (insan is Gorevli)
+                gorevli_insanlarToolStripMenuItem_Click(sender, e);
+            else
+            {
+                ana_girisTc_textBox.Text = "";
+                ana_girisSifre_textBox.Text = "";
+                panelCagir(ana_Giris_Panel, anaPanel_Liste);
+            }
         }
 
         private void ana_ykTc_textBox_KeyPress(object sender, KeyPressEventArgs e)          //yeni kullanıcı panelindeki tc textbox içine sadece sayı girilmesini sağlar
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)  )
-            {
                 e.Handled = true;
-            }
         }
 
         private void ana_ykYeniKayit_Button_Click(object sender, EventArgs e)               //textbox içlerini kontrol eder ve yeni kullanıcı oluşturur, yeni kullanıcı panelindeki textbox içlerini boşaltır ve giriş panelini getirir
@@ -417,14 +438,33 @@ namespace KütüphaneV2
                 {
                     if (insan.sqlString("SELECT count(*) FROM Insan WHERE tc='" + ana_ykTc_textBox.Text + "'") == "0")
                     {
-                        insan = new Kullanici(ana_ykTc_textBox.Text, ana_ykSifre_textBox.Text, ana_ykAd_textBox.Text, ana_ykSoyad_textBox.Text, ana_ykGuvenlikKelimesi_textBox.Text);
-                        MessageBox.Show("Yeni Kullanıcı Oluşturuldu");
-                        panelCagir(ana_Giris_Panel, anaPanel_Liste);
-                        ana_ykTc_textBox.Text = "";
-                        ana_ykSifre_textBox.Text = "";
-                        ana_ykAd_textBox.Text = "";
-                        ana_ykSoyad_textBox.Text = "";
-                        ana_ykGuvenlikKelimesi_textBox.Text = "";
+                        if (insan is Gorevli)
+                        {
+                            if (ana_yk_Gorevli_radioButton.Checked)
+                            {
+                                insan.insanEkle(ana_ykTc_textBox.Text, ana_ykSifre_textBox.Text, ana_ykAd_textBox.Text,
+                                    ana_ykSoyad_textBox.Text, ana_ykGuvenlikKelimesi_textBox.Text,
+                                    ana_yk_Gorevli_radioButton.Text);
+                                MessageBox.Show("Yeni " + ana_yk_Gorevli_radioButton.Text + " Oluşturuldu!");
+                                gorevli_insanlarToolStripMenuItem_Click(sender,e);
+                            }
+                            else if (ana_yk_Kullanici_radioButton.Checked)
+                            {
+                                insan.insanEkle(ana_ykTc_textBox.Text, ana_ykSifre_textBox.Text, ana_ykAd_textBox.Text,
+                                    ana_ykSoyad_textBox.Text, ana_ykGuvenlikKelimesi_textBox.Text,
+                                    ana_yk_Kullanici_radioButton.Text);
+                                MessageBox.Show("Yeni " + ana_yk_Kullanici_radioButton.Text + " Oluşturuldu!");
+                                gorevli_insanlarToolStripMenuItem_Click(sender, e);
+                            }
+                            else
+                                MessageBox.Show("Lütfen Kayıt Seçeneği Seçin!");
+                        }
+                        else
+                        {
+                            insan = new Kullanici(ana_ykTc_textBox.Text, ana_ykSifre_textBox.Text, ana_ykAd_textBox.Text, ana_ykSoyad_textBox.Text, ana_ykGuvenlikKelimesi_textBox.Text);
+                            MessageBox.Show("Yeni Kullanıcı Oluşturuldu");
+                            ana_girisYeniKayit_Label_Click(sender, e);
+                        }
                     }
                     else
                         MessageBox.Show("Halihazırda " + ana_ykTc_textBox.Text + " tc numaralı kayıt bulunmaktadır!");
@@ -445,6 +485,7 @@ namespace KütüphaneV2
         {
             MessageBox.Show("Çıkış Yapıldı!");
             panelCagir(ana_Panel, panel_Liste);
+            panelCagir(ana_Giris_Panel,anaPanel_Liste);
             insan = new Insan();
         }
 
@@ -634,6 +675,7 @@ namespace KütüphaneV2
         {
             MessageBox.Show("Çıkış Yapıldı!");
             panelCagir(ana_Panel, panel_Liste);
+            panelCagir(ana_Giris_Panel,anaPanel_Liste);
             insan = new Insan();
         }
 
@@ -826,7 +868,71 @@ namespace KütüphaneV2
             dgwFiltrele(gorevli_kitaplar_dataGridView, "Basım Yılı", gorevli_kitaplar_basimyili_textBox.Text);
         }
         /*------------------------kitaplar------------------------*/
+        /*------------------------insanlar------------------------*/
+        private void gorevli_insanlarToolStripMenuItem_Click(object sender, EventArgs e)        //insanlar panelini ekrana getirir
+        {
+            gorevli_insanlar_isim_textBox.Text = "";
+            gorevli_insanlar_soyisim_textBox.Text = "";
+            gorevli_insanlar_dataGridView.DataSource = insan.insanSorgula();
+            panelCagir(gorevli_Panel, panel_Liste);
+            panelCagir(gorevli_insanlar_panel,gorevliPanel_Liste);
+        }
 
+        private void gorevli_insanlar_insanEkle_button_Click(object sender, EventArgs e)        //insan ekleme butonuna basıldığında yeni kayıt panelini ekrana getirir
+        {
+            ana_girisYeniKayit_Label_Click(sender,e);
+        }
+
+        private void gorevli_insanlar_isim_textBox_TextChanged(object sender, EventArgs e)      //textbox textindeki değer ile datagridviewi fitreler
+        {
+            dgwFiltrele(gorevli_insanlar_dataGridView,"İsim",gorevli_insanlar_isim_textBox.Text);
+        }
+
+        private void gorevli_insanlar_soyisim_textBox_TextChanged(object sender, EventArgs e)      //textbox textindeki değer ile datagridviewi fitreler
+        {
+            dgwFiltrele(gorevli_insanlar_dataGridView, "Soyisim", gorevli_insanlar_soyisim_textBox.Text);
+        }
+
+        private void gorevli_insanlar_kAta_button_Click(object sender, EventArgs e)             //seçilen kayıdı kullanıcı olarak atar
+        {
+            foreach (DataGridViewRow dataGridViewRow in gorevli_insanlar_dataGridView.SelectedRows)
+            {
+                if (!dataGridViewRow.Cells["ID"].Value.ToString().Equals(insan.insan_id.ToString()))
+                {
+                    if (dataGridViewRow.Cells["Durum"].Value.ToString().Equals("Görevli"))
+                    {
+                        insan.kullaniciAta(int.Parse(dataGridViewRow.Cells["ID"].Value.ToString()));
+                        MessageBox.Show("Seçilen Kayıt Kullanıcı Olarak Atandı!");
+                        gorevli_insanlarToolStripMenuItem_Click(sender, e);
+                    }
+                    else
+                        MessageBox.Show("Seçilen Kayıt Kullanıcı Olarak Atanamıyor!");
+                }
+                else
+                    MessageBox.Show("Kendi Durumunuzu Değiştiremezsiniz!");
+            }
+        }
+
+        private void gorevli_insanlar_gAta_button_Click(object sender, EventArgs e)             //seçilen kayıdı görevli olarak atar
+        {
+            foreach (DataGridViewRow dataGridViewRow in gorevli_insanlar_dataGridView.SelectedRows)
+            {
+                if (!dataGridViewRow.Cells["ID"].Value.ToString().Equals(insan.insan_id.ToString()))
+                {
+                    if (dataGridViewRow.Cells["Durum"].Value.ToString().Equals("Kullanıcı"))
+                    {
+                        insan.gorevliAta(int.Parse(dataGridViewRow.Cells["ID"].Value.ToString()));
+                        MessageBox.Show("Seçilen Kayıt Görevli Olarak Atandı!");
+                        gorevli_insanlarToolStripMenuItem_Click(sender, e);
+                    }
+                    else
+                        MessageBox.Show("Seçilen Kayıt Görevli Olarak Atanamıyor!");
+                }
+                else
+                    MessageBox.Show("Kendi Durumunuzu Değiştiremezsiniz!");
+            }
+        }
+        /*------------------------insanlar------------------------*/
         /*-------------------------------görevli_Panel--------------------*/
     }
 }
