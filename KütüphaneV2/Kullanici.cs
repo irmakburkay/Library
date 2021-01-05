@@ -9,20 +9,20 @@ namespace KütüphaneV2
 {
     public class Kullanici : Insan
     {
-        public Kullanici(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi)             //yeni kayıt yapan kullanıcı
+        public Kullanici(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi,String insanDurumu="Kullanıcı"):this(tc)             //yeni kayıt yapan kullanıcı
         {
-            insanEkle(tc, sifre, isim, soyisim, guvenlikKelimesi);                                                  //yeni kaydı veritabanına kaydeder
+            insanEkle(tc, sifre, isim, soyisim, guvenlikKelimesi, insanDurumu);                                                  //yeni kaydı veritabanına kaydeder
         }   
 
-        public Kullanici(String tc)                                                                                 //kayıtlı kullanıcı girişi
+        public Kullanici(String tc):base()                                                                                 //kayıtlı kullanıcı girişi
         {                                                                                                           //tc numarasına göre kullanıcı bilgilerini class değişkenlerine atar;
             bilgiAl(tc);
         }
 
-        public override void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi)  //parametrelerle veritabanında yeni kullanıcı oluşturur
+        public override void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi,String insanDurumu="Kullanıcı")  //parametrelerle veritabanında yeni kullanıcı oluşturur
         {
             String sql = "INSERT INTO Insan (tc,şifre,isim,soyisim,güvenlikKelimesi,insanDurumu) " +
-                "VALUES ('" + tc + "','" + sifre + "','" + isim + "','" + soyisim + "','" + guvenlikKelimesi + "','Kullanıcı')";
+                "VALUES ('" + tc + "','" + sifre + "','" + isim + "','" + soyisim + "','" + guvenlikKelimesi + "','"+insanDurumu+"')";
             sqlIslem(sql);
         }
 

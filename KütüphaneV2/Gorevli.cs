@@ -9,16 +9,16 @@ namespace KütüphaneV2
 {
     public class Gorevli : Insan
     {
-        public Gorevli(String tc)                                                               //kayıtlı görevli girişi
+        public Gorevli(String tc):base()                                                               //kayıtlı görevli girişi
         {
             bilgiAl(tc);                                                                        //tc bilgisiyle görevli bilgilerini class değişkenlerine atar
         }
 
-        public override void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi)   //parametrelerle veritabanında yeni görevli oluşturur
+        public override void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi,String insanDurumu)   //parametrelerle veritabanında yeni görevli oluşturur
         {
 
             String sql = "INSERT INTO Insan (tc,şifre,isim,soyisim,güvenlikKelimesi,insanDurumu) " +
-                "VALUES ('" + tc + "','" + sifre + "','" + isim + "','" + soyisim + "','" + guvenlikKelimesi + "','Görevli')";
+                "VALUES ('" + tc + "','" + sifre + "','" + isim + "','" + soyisim + "','" + guvenlikKelimesi + "','"+insanDurumu+"')";
             sqlIslem(sql);
         }
 
