@@ -57,7 +57,7 @@ namespace KütüphaneV2
             sqlIslem(sql);
         }
 
-        public virtual void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi) { }
+        public virtual void insanEkle(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi,String insanDurumu) { }
         public virtual void gorevliAta(long insan_id) { }
         public virtual void kullaniciAta(long insan_id) { }
         public virtual DataTable kitapSorgula() { return null; }
