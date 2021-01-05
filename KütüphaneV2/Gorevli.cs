@@ -9,7 +9,7 @@ namespace KütüphaneV2
 {
     public class Gorevli : Insan
     {
-        public Gorevli(String tc)                                                               //kayıtlı görevli girişi
+        public Gorevli(String tc):base()                                                               //kayıtlı görevli girişi
         {
             bilgiAl(tc);                                                                        //tc bilgisiyle görevli bilgilerini class değişkenlerine atar
         }

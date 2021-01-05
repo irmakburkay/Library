@@ -9,12 +9,12 @@ namespace KütüphaneV2
 {
     public class Kullanici : Insan
     {
-        public Kullanici(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi,String insanDurumu="Kullanıcı")             //yeni kayıt yapan kullanıcı
+        public Kullanici(String tc, String sifre, String isim, String soyisim, String guvenlikKelimesi,String insanDurumu="Kullanıcı"):this(tc)             //yeni kayıt yapan kullanıcı
         {
             insanEkle(tc, sifre, isim, soyisim, guvenlikKelimesi, insanDurumu);                                                  //yeni kaydı veritabanına kaydeder
         }   
 
-        public Kullanici(String tc)                                                                                 //kayıtlı kullanıcı girişi
+        public Kullanici(String tc):base()                                                                                 //kayıtlı kullanıcı girişi
         {                                                                                                           //tc numarasına göre kullanıcı bilgilerini class değişkenlerine atar;
             bilgiAl(tc);
         }
